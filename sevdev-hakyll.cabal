@@ -1,5 +1,5 @@
-name:               static-site
-version:            0.1.0.0
+name:               sevdev-hakyll
+version:            0.0.0.0
 build-type:         Simple
 cabal-version:      >= 1.10
 
