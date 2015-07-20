@@ -3,6 +3,7 @@ packages:
 - '.'
 extra-deps:
     - hakyll-4.7.2.0
+    - clay-0.10.1
     - purescript-0.7.1.0
     - bower-json-0.7.0.0
     - boxes-0.1.4
