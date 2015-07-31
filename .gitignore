@@ -16,3 +16,5 @@ cabal.sandbox.config
 *.hp
 _site
 _cache
+.stack-work
+**/bower_components
