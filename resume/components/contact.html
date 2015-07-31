@@ -1,0 +1,26 @@
+<dom-module id="sd-contact">
+	<link rel="import" type="css" href="contact.css">
+	<link rel="import" href="../bower_components/paper-material/paper-material.html">
+	<template>
+		<div class="fixed">
+			<div class="content">
+				<div class="avatar">
+					<content select="img"></content>
+				</div>
+				<div class="name">
+					<content select=".name"></content>
+				</div>
+			</div>
+		</div>
+		<div class="card-container">
+			<paper-material class="card">
+				<div class="contact-info">
+					<content select=".contact"></content>
+				</div>
+				<div class="profiles">
+					<content select=".profile"></content>
+				</div>
+			</paper-material>
+		</div>
+	</template>
+</dom-module>

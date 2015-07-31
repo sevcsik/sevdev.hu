@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>Andras Sevcsik: Résumé</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="import" href="bower_components/polymer/polymer.html">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.js"></script>
 	<script>
 		System.config({
@@ -14,9 +17,8 @@
 	</script>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="index.css">
-	<link rel="import" href="bower_components/polymer/polymer.html">
-
 </head>
 <body class="fullbleed layout vertical">
 	<sd-resume class="plain">
@@ -31,28 +33,37 @@
 			</sd-menu>
 		</nav>
 		<main>
-			<sd-contact itemscope itemtype="https://schema.org/Person">
+			<sd-contact id="contact" 
+				itemscope itemtype="https://schema.org/Person">
 				<img src="images/avatar.jpg" title="Profile picture">
 				<h2 class="name">
 					<span itemprop="givenName">Andras</span>
 					<span itemprop="familyName">Sevcsik</span>
 				</h2>
 				<p itemprop="jobTitle">Senior Javascript Developer</p>
-				<div class="contact-info">
-					<a class="email" itemprop="email" 
-						href="mailto:sevcsik@sevdev.hu">sevcsik@sevdev.hu</a>
-					<a class="phone" itemprop="telephone" 
-						href="tel:+3612915159">+36702915159</a>
-					<a class="skype" itemprop="sameAs"
-						href="skype:sevcsik">sevcsik</a>
-				<div class="profiles">
-					<a class="linkedin" itemprop="sameAs"
-						 href="https://hu.linkedin.com/in/sevcsik"></a>
-					<a class="stackoverflow" itemprop="sameAs"
-						 href="http://stackoverflow.com/users/382610/sevcsik"></a>
-					<a class="github" itemprop="sameAs"
-						href="http://github.com/sevcsik"></a>
-				</div>
+				<a class="email contact" itemprop="email" 
+					href="mailto:sevcsik@sevdev.hu">sevcsik@sevdev.hu</a>
+				<a class="phone contact" itemprop="telephone" 
+					href="tel:+3612915159">+36702915159</a>
+				<a class="skype contact" itemprop="sameAs"
+					href="skype:sevcsik">sevcsik</a>
+
+				<a class="linkedin profile" itemprop="sameAs"
+					 href="https://hu.linkedin.com/in/sevcsik">
+					<i class="fa fa-fw fa-linkedin"></i>
+				</a>
+				<a class="stackoverflow profile" itemprop="sameAs"
+					 href="http://stackoverflow.com/users/382610/sevcsik">
+					<i class="fa fa-fw fa-stack-overflow"></i>
+				</a>
+				<a class="github profile" itemprop="sameAs"
+					href="http://github.com/sevcsik">
+					<i class="fa fa-fw fa-github"></i>
+				</a>
+				<a class="twitter profile" itemprop="sameAs"
+					href="http://twitter.com/sevcsik">
+					<i class="fa fa-fw fa-twitter"></i>
+				</a>
 			</sd-contact>
 		</main>
 	</sd-resume>

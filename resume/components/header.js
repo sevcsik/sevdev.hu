@@ -6,7 +6,13 @@
 Polymer.Base.importHref('components/header.html', function() {
 
 Polymer({
-	is: 'sd-header'
+	is: 'sd-header',
+	listeners: {
+		'menu.click': 'onMenuClick'
+	},
+	onMenuClick(e) {
+		this.fire('sd-menu-click');
+	}
 });
 
 });

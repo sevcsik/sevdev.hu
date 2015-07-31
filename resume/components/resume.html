@@ -6,7 +6,7 @@
 	<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 	<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 	<template>
-		<paper-drawer-panel>
+		<paper-drawer-panel id="drawer">
 			<div drawer>
 				<content select="nav"></content>
 			</div>
@@ -14,7 +14,7 @@
 				<div class="paper-header">
 					<content select="header"></content>
 				</div>
-				<div>
+				<div class="content">
 					<content select="main"></content>
 				</div>
 			</paper-scroll-header-panel>
