@@ -1,0 +1,23 @@
+<!-- 
+	Main component
+-->
+<dom-module id="sd-resume">
+	<link rel="import" type="css" href="resume.css">
+	<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+	<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+	<template>
+		<paper-drawer-panel>
+			<div drawer>
+				<content select="nav"></content>
+			</div>
+			<paper-scroll-header-panel class="flex" main>
+				<div class="paper-header">
+					<content select="header"></content>
+				</div>
+				<div>
+					<content select="main"></content>
+				</div>
+			</paper-scroll-header-panel>
+		<content></content>
+	</template>
+</dom-module>

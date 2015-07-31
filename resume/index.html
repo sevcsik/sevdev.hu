@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>Andras Sevcsik: Résumé</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.js"></script>
+	<script>
+		System.config({
+			map: {
+				babel: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js'
+			},
+			transpiler: 'babel'
+		});
+		System.import('components/resume.js');
+	</script>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="index.css">
+	<link rel="import" href="bower_components/polymer/polymer.html">
+
+</head>
+<body class="fullbleed layout vertical">
+	<sd-resume class="plain">
+		<header>
+			<sd-header><h1>Résumé</h1></sd-header>
+		</header>
+		<nav>
+			<sd-menu>
+				<h1>Navigation</h1>
+				<a href="#contact">Contact information</a>
+				<a href="#skills">Skills</a>
+			</sd-menu>
+		</nav>
+		<main>
+			Andras Sevcsik, hello
+		</main>
+	</sd-resume>
+</body>
+</html>

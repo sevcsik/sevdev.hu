@@ -1,0 +1,10 @@
+.content {
+	text-align: center;
+	color: #fff;
+}
+
+paper-checkbox {
+	text-transform: uppercase;
+	--paper-checkbox-label-color: white;
+	--paper-checkbox-unchecked-color: white;
+}

@@ -1,0 +1,13 @@
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+}
+
+header, h1, h2, h3, h4 {
+	font-family: 'Raleway', serif;
+}
+
+.plain header {
+	display: none;
+}
+
