@@ -48,6 +48,7 @@
 	display: block;
 	height: calc(100vh - 60px);
 	position: relative;
+	perspective: 1000px;
 }
 
 .card {
@@ -58,7 +59,15 @@
 	background: white;
 	margin: 10px;
 	padding: 10px;
+	transition: transform 0.5s, opacity 0.5s, translateY 0.5s;
+	transform-origin: 0 100%;
 }
+
+:host.scroll-hidden-q2 .card {
+	transform: rotateX(45deg) translateY(-200px);
+	opacity: 0;
+}
+
 
 .contact-info ::content a {
 	display: block;
