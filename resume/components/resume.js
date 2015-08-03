@@ -8,6 +8,7 @@ import 'bower_components/es6-shim/es6-shim.min.js';
 import 'components/header.js';
 import 'components/menu.js';
 import 'components/contact.js';
+import 'components/skillset.js';
 
 Polymer.Base.importHref('components/resume.html', function() {
 

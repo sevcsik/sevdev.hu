@@ -21,6 +21,7 @@
     "iron-icons": "PolymerElements/iron-icons#~1.0.3",
     "paper-checkbox": "PolymerElements/paper-checkbox#~1.0.5",
     "paper-material": "PolymerElements/paper-material#~1.0.1",
-    "es6-shim": "~0.33.0"
+    "es6-shim": "~0.33.0",
+    "d3": "mbostock/d3#~3.5.6"
   }
 }
