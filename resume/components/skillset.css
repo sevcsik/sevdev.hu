@@ -30,3 +30,9 @@
 	text-anchor: right;
 	font-size: 2.5px;
 }
+
+.column {
+	stroke: white;
+	stroke-width: 2px;
+	fill: #FFC107;
+}

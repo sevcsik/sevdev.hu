@@ -29,11 +29,13 @@ Polymer({
 			.enter()
 			.append('rect')
 			.filter((d) => d.featured)
-			.classed({ column: true })
+			.classed({ column: true, 'sd-skillset': true }) // Polymer should add this
 			.attr('x', (d, i) => i * 100 / featured.length)
 			.attr('y', (d, i) => 25 * (4 - d.level))
 			.attr('width', 100 / featured.length)
 			.attr('height', (d, i) => (d.level + 1) * 25);
+
+		this.updateStyles();
 
 	},
 
