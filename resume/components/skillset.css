@@ -28,11 +28,15 @@
 
 .axis-label {
 	text-anchor: right;
-	font-size: 2.5px;
+	font-size: 2.8px;
 }
 
 .column {
 	stroke: white;
 	stroke-width: 2px;
 	fill: #FFC107;
+}
+
+.label {
+	font-size: 8px;
 }

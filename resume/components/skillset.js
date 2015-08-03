@@ -33,10 +33,22 @@ Polymer({
 			.attr('x', (d, i) => i * 100 / featured.length)
 			.attr('y', (d, i) => 25 * (4 - d.level))
 			.attr('width', 100 / featured.length)
-			.attr('height', (d, i) => (d.level + 1) * 25);
+			.attr('height', (d, i) => (d.level + 1) * 25)
+		;
 
-		this.updateStyles();
-
+		d3.select(Polymer.dom(this.root).querySelector('#labels'))
+			.selectAll('text')
+			.data(featured)
+			.enter()
+			.append('text')
+			.text((d) => d.name)
+			.classed({ label: true, 'sd-skillset': true })
+			.attr('text-anchor', 'end')
+			.attr('transform', 'rotate(-90)')
+			.attr('x', 0)
+			.attr('y', (d, i) => 14 + (i * 100 / featured.length))
+		;
+			
 	},
 
 	_parseDOM() {
