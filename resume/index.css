@@ -22,23 +22,9 @@ h1 {
 	text-decoration: none;
 }
 
-#skills {
-	margin-top: 200px;
-	position: relative;	
-	background: white;
-}
-
-#skills > .content {
-	padding: 20px;
-}
-
 @media only screen and (min-width: 768px) {
 	h1 {
 		font-size: 32px;
 	}
-
-	#skills {
-		margin: 20px;
-		margin-top: 400px;
-	}
 }
+

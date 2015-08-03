@@ -6,3 +6,16 @@ header {
 	--default-primary-color: #673AB7;
 }
 
+::content #contact {
+	margin-bottom: 100px;
+}
+
+::content paper-toolbar {
+	transition: opacity 0.5s, transform 0.5s;
+}
+
+::content paper-toolbar.scroll-hidden {
+	opacity: 0;
+	transform: translateX(500px);
+}
+
