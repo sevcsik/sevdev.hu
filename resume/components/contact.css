@@ -42,6 +42,12 @@
 ::content .name {
 	color: white;
 	font-weight: 400;
+	margin: 0;
+}
+
+::content .title {
+	color: white;
+	margin: 0;
 }
 
 .card-container {
@@ -61,6 +67,7 @@
 	padding: 10px;
 	transition: transform 0.5s, opacity 0.5s, translateY 0.5s;
 	transform-origin: 0 100%;
+	text-align: left;
 }
 
 :host.scroll-hidden-q2 .card {
