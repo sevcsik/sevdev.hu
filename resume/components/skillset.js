@@ -20,8 +20,7 @@ Polymer({
 		this.end = this.getAttribute('end');
 
 		let featured = this.data.filter((d) => d.featured);
-
-		console.log(featured);
+		let others = this.data.filter((d) => !d.featured);
 
 		d3.select(Polymer.dom(this.root).querySelector('#columns'))
 			.selectAll('rect')
@@ -29,7 +28,7 @@ Polymer({
 			.enter()
 			.append('rect')
 			.filter((d) => d.featured)
-			.classed({ column: true, 'sd-skillset': true }) // Polymer should add this
+			.classed('column sd-skillset', true) // Polymer should add this
 			.attr('x', (d, i) => i * 100 / featured.length)
 			.attr('y', (d, i) => 25 * (4 - d.level))
 			.attr('width', 100 / featured.length)
@@ -42,12 +41,23 @@ Polymer({
 			.enter()
 			.append('text')
 			.text((d) => d.name)
-			.classed({ label: true, 'sd-skillset': true })
+			.classed('label sd-skillset', true)
 			.attr('text-anchor', 'end')
 			.attr('transform', 'rotate(-90)')
 			.attr('x', 0)
 			.attr('y', (d, i) => 14 + (i * 100 / featured.length))
 		;
+
+		d3.select(Polymer.dom(this.root).querySelector('#others'))
+			.selectAll('span')
+			.data(others)
+			.enter()
+			.append('span')
+			.classed('skill sd-skillset', true)
+			.classed('level-1', (d) => d.level === 1)
+			.classed('level-2', (d) => d.level === 2)
+			.classed('level-3', (d) => d.level === 3)
+			.text((d) => d.name);
 			
 	},
 

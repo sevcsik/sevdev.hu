@@ -6,6 +6,10 @@ header {
 	--default-primary-color: #673AB7;
 }
 
+.content {
+	text-align: center;
+}
+
 ::content #contact {
 	margin-bottom: 100px;
 }
@@ -17,5 +21,18 @@ header {
 ::content paper-toolbar.scroll-hidden {
 	opacity: 0;
 	transform: translateX(500px);
+}
+
+::content sd-skillset {
+	margin: 20px auto;
+	max-width: 400px;
+	width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+	::content sd-skillset {
+		display: inline-block;
+		width: 40%;
+	}
 }
 

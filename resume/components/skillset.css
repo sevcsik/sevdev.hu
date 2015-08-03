@@ -13,8 +13,8 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 }
 
 .circle {
@@ -39,4 +39,28 @@
 
 .label {
 	font-size: 8px;
+	text-transform: uppercase;
+}
+
+.skill {
+	background: white;
+	border-radius: 3px;
+	padding: 5px 10px;
+	margin: 0 2px;
+	display: inline-block;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.skill.level-1 {
+	font-size: 60%;
+}
+
+.skill.level-2 {
+	font-size: 80%;
+}
+
+.skill.level-3 {
+	font-size: 100%;
 }
