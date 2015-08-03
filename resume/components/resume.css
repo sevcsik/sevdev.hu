@@ -27,12 +27,20 @@ header {
 	margin: 20px auto;
 	max-width: 400px;
 	width: 100%;
+	transition: transform 0.5s, opacity 0.5s;
+}
+
+::content sd-skillset.scroll-hidden-q3,
+::content sd-skillset.scroll-hidden {
+	transform: scale(0.8) translateY(100px);
+	opacity: 0;
 }
 
 @media only screen and (min-width: 1024px) {
 	::content sd-skillset {
 		display: inline-block;
 		width: 40%;
+		vertical-align: top;
 	}
 }
 
