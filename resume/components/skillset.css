@@ -22,6 +22,17 @@
 	fill: white;
 }
 
+#end-path {
+	fill: none;
+	stroke: none;
+}
+
+#end {
+	font-family: "Raleway", serif;
+	text-transform: uppercase;
+	font-size: 5px;
+}
+
 .axis {
 	stroke: black;
 	stroke-width: 0.5px;

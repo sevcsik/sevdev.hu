@@ -4,6 +4,18 @@
 		<div id="featured">
 			<svg id="svg" width="100" height="100" viewbox="0 0 100 100">
 				<circle class="circle" cx="50" cy="50" r="40" />
+				<path id="end-path" stroke="blue" 
+					transform="translate(50,50) scale(31,31) rotate(180)"
+					d="M 0,-1
+					   C 0.5523, -1   1, -0.5523    1,0
+					   C 1, 0.5523    0.5523, 1     0,1
+					   C -0.5523, 1   -1, 0.5523    -1,0
+					   C -1, -0.5523  -0.5523, -1   0,-1"
+					/>
+				<text id="end" text-anchor="middle">
+					<textPath xlink:href="#end-path"
+						startOffset="50%">{{ end }}</textPath>
+				</text>
 				<g id="chart" transform="translate(0, -10)">
 					<line class="axis" x1="30" y1="70" x2="30" y2="40" />
 					<text class="axis-label" x="28" y="42" text-anchor="end">
