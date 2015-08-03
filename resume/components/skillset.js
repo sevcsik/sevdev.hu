@@ -15,11 +15,26 @@ var levels =
 Polymer({
 	is: 'sd-skillset',
 
-	created() {
-		let data = this._parseDOM();
-		let end = this.getAttribute('end');
+	ready() {
+		this.data = this._parseDOM();
+		this.end = this.getAttribute('end');
 
-		console.log(end, data);
+		let featured = this.data.filter((d) => d.featured);
+
+		console.log(featured);
+
+		d3.select(Polymer.dom(this.root).querySelector('#columns'))
+			.selectAll('rect')
+			.data(featured)
+			.enter()
+			.append('rect')
+			.filter((d) => d.featured)
+			.classed({ column: true })
+			.attr('x', (d, i) => i * 100 / featured.length)
+			.attr('y', (d, i) => 25 * (4 - d.level))
+			.attr('width', 100 / featured.length)
+			.attr('height', (d, i) => (d.level + 1) * 25);
+
 	},
 
 	_parseDOM() {
