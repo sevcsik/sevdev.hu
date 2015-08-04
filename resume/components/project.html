@@ -1,0 +1,17 @@
+<dom-module id="sd-project">
+	<link rel="import" type="css" href="project.css">
+	<link rel="import" href="../bower_components/paper-material/paper-material.html">
+	<template>
+		<paper-material>
+			<content select="h2"></content>
+			<content select="img.cover"></content>
+			<content select="[description]"></content>
+			<section id="buzzwords">
+				<h3>Relevant Buzzwords</h3>
+				<template is="dom-repeat" items="{{ _buzzwords }}">
+					<span class="buzzword">{{ item }}</span>
+				</template>
+			</section>
+		</paper-material>
+	</template>
+</dom-module>
