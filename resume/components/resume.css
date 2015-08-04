@@ -24,6 +24,16 @@ header {
 	transform: translateX(500px);
 }
 
+::content sd-contact /deep/ .card {
+	transition: transform 0.5s, opacity 0.5s, translateY 0.5s;
+	transform-origin: 0 100%;
+}
+
+::content sd-contact.scroll-hidden-q2 /deep/ .card {
+	transform: rotateX(45deg) translateY(-200px);
+	opacity: 0;
+}
+
 ::content sd-skillset {
 	margin: 20px auto;
 	max-width: 400px;
