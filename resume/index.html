@@ -47,6 +47,7 @@
 				<h1>Navigation</h1>
 				<a href="#contact">Contact information</a>
 				<a href="#skills">Skills</a>
+				<a href="#projects">Projects</a>
 			</sd-menu>
 		</nav>
 		<main>
@@ -83,6 +84,7 @@
 					href="http://twitter.com/sevcsik">
 					<i class="fa fa-fw fa-twitter"></i>
 				</a>
+				<link itemprop="url" href="http://sevdev.hu/~sevcsik">
 			</sd-contact>
 			<paper-toolbar id="skills">
 				<h1>Skillset and Experience</h1>
@@ -222,6 +224,50 @@
 					</li>
 				</ul>
 			</sd-skillset>
+			<paper-toolbar id="projects">
+				<h1>Projects</h1>
+			</paper-toolbar>
+			<sd-project id="couchdb-model"
+				itemscope itemtype="http://schema.org/Product">
+				<h2 itemprop="name">
+					<a href="http://github.com/sevcsik/node-couchdb-model"
+						itemprop="url">
+						node-couchdb-model
+					</a>
+					(<span date itemscope="releaseDate">2014</span>)
+				</h2>
+				<section class="description" itemprop="description">
+					<p>
+						A simple CouchDB abstraction for Node.js, built on 
+						top of the 
+						<a href="https://gihub.com/dscape/nano">nano</a> 
+						project.
+						It comes with a http middleware, which is useful
+						to build REST APIs.
+					</p>
+					<p>
+						The project was developed as an open source project
+						on Github, using the BDD methodology from the
+						beginning.
+					</p>
+				</section>
+				<section class="buzzwords">
+					<h3>Relevant Buzzwords</h3>
+					<ul>
+						<li>Node.js</li>
+						<li>BDD</li>
+						<li>Karma</li>
+						<li>Mocha</li>
+						<li>Chai</li>
+						<li>CouchDB</li>
+						<li>Git</li>
+						<li>NPM</li>
+						<li>REST</li>
+						<li>Promises</li>
+						<li>open source</li>
+					</ul>
+				</section>
+			</sd-project>
 		</main>
 	</sd-resume>
 </body>
