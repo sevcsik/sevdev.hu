@@ -63,5 +63,9 @@ header {
 		width: 40%;
 		vertical-align: top;
 	}
+
+	::content sd-project {
+		margin: 20px;
+	}
 }
 

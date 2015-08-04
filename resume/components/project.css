@@ -8,8 +8,28 @@ paper-material {
 	padding: 20px;
 }
 
-::content h2 {
+header.has-image {
+	margin: -20px -20px 0 -20px;
+	color: white;
+}
+
+header ::content h2 {
 	margin: 0 0 20px 0;
+}
+
+header.has-image ::content h2 {
+	position: absolute;
+	top: 0px;
+	left 0px;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	background-image: -webkit-linear-gradient(top, black, transparent);
+}
+
+header ::content img {
+	width: 100%;
+	height: auto;
 }
 
 #buzzwords {
