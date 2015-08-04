@@ -3,8 +3,6 @@
  * @class sd-resume
  */
 
-import 'bower_components/es6-shim/es6-shim.min.js';
-
 import 'components/header.js';
 import 'components/menu.js';
 import 'components/contact.js';
