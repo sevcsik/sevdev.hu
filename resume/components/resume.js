@@ -48,14 +48,24 @@ Polymer({
 					classes += ' scroll-visible';
 					
 					// add class for every visible quartile
-					[1, 2, 3].forEach((n) => {
+					[0, 1, 2, 3, 4].forEach((n) => {
+						let postfix = n === 0 ? '-top'
+						            : n === 4 ? '-bottom'
+						            : `-q${n}`;
+
 						if (isQuartileVisible(n))
-						   	classes += (' scroll-visible-q' + n);
+						   	classes += (' scroll-visible' + postfix);
 						else
-							classes += (' scroll-hidden-q' + n);
+							classes += (' scroll-hidden' + postfix);
 					});
 				} else {
-				   classes += ' scroll-hidden';
+					classes += ' scroll-hidden';
+
+					if (childTop < viewTop) {
+					   classes += ' scroll-hidden-above';
+					} else {
+					   classes += ' scroll-hidden-below';
+					}
 				}	   
 
 				child.className = classes;

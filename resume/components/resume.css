@@ -19,7 +19,7 @@ header {
 	transition: opacity 0.5s, transform 0.5s;
 }
 
-::content paper-toolbar.scroll-hidden {
+::content paper-toolbar.scroll-hidden-below {
 	opacity: 0;
 	transform: translateX(500px);
 }
@@ -42,18 +42,22 @@ header {
 	display: block;
 }
 
+::content sd-skillset {
+	transform: scale(0.8) translateY(100px);
+	opacity: 0;
+}
+
+::content sd-skillset.scroll-visible-q2,
+::content sd-skillset.scroll-visible-bottom {
+	transform: none;
+	opacity: 1;
+}
+
 @media only screen and (min-width: 1024px) {
 	::content sd-skillset {
 		display: inline-block;
 		width: 40%;
 		vertical-align: top;
 	}
-
-	::content sd-skillset.scroll-hidden-q3,
-	::content sd-skillset.scroll-hidden {
-		transform: scale(0.8) translateY(100px);
-		opacity: 0;
-	}
-
 }
 
