@@ -1,3 +1,7 @@
+::host {
+	position: relative;
+}
+
 paper-material {
 	background: white;
 	text-align: left;

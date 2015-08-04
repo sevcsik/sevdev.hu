@@ -42,19 +42,23 @@ header {
 	display: block;
 }
 
-::content sd-skillset {
+::content sd-skillset,
+::content sd-project {
 	transform: scale(0.8) translateY(100px);
 	opacity: 0;
 }
 
 ::content sd-skillset.scroll-visible-q2,
-::content sd-skillset.scroll-visible-bottom {
+::content sd-skillset.scroll-visible-bottom,
+::content sd-project.scroll-visible-q1,
+::content sd-project.scroll-visible-bottom {
 	transform: none;
 	opacity: 1;
 }
 
 @media only screen and (min-width: 1024px) {
-	::content sd-skillset {
+	::content sd-skillset,
+    ::content sd-project {
 		display: inline-block;
 		width: 40%;
 		vertical-align: top;
