@@ -8,7 +8,7 @@ header {
 
 .content {
 	text-align: center;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 ::content #contact {
