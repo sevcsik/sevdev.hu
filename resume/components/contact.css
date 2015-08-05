@@ -95,6 +95,10 @@
 	content: '\f17e'; /* fa-skype */
 }
 
+.contact-info ::content a.site::before {
+	content: '\f015'; /* fa-home */
+}
+
 .profiles {
 	text-align: center;
 }
