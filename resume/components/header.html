@@ -7,7 +7,6 @@
 	<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 	<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 	<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-	<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
 	<template>
 		<paper-toolbar>
 			<paper-icon-button id="menu" icon="menu" paper-drawer-toggle>
@@ -15,7 +14,9 @@
 			<div class="flex content">
 				<content></content>
 			</div>
-			<paper-checkbox>Plain </paper-checkbox>
+			<paper-icon-button icon="print" id="print">
+				print
+			</paper-icon-button>
 		</paper-toolbar>
 	</template>
 </dom-module>
