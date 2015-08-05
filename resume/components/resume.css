@@ -86,8 +86,9 @@
 }
 
 @media print {
-	paper-scroll-header-panel /deep/ #headerContainer {
-		display: none;
+	paper-drawer-panel /deep/ {
+		position: static;
+		height: auto;
 	}
 
 	paper-drawer-panel /deep/ #drawer {
@@ -96,6 +97,26 @@
 
 	paper-drawer-panel /deep/ #main {
 		left: 0 !important;
+		position: static;
+		height: auto;
+	}
+
+	paper-scroll-header-panel /deep/ {
+		height: auto !important;
+	}
+
+	paper-scroll-header-panel /deep/ #headerContainer {
+		display: none;
+	}
+
+	paper-scroll-header-panel /deep/ #mainContainer {
+		position: static;
+	}
+
+
+	::content sd-contact {
+		margin-bottom: 0;
+		height: auto;
 	}
 
 	::content sd-skillset {
@@ -109,6 +130,11 @@
 		width: 40%;
 		vertical-align: top;
 		margin: 20px;
+	}
+
+	::content #projects {
+		page-break-before: always;
+		break-before: always;
 	}
 }
 

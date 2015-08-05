@@ -70,9 +70,11 @@
 
 .contact-info ::content a {
 	display: block;
+	white-space: nowrap;
 }
 
-.contact-info ::content a::before {
+.contact-info ::content a::before,
+.profiles ::content a::before {
 	font-family: "FontAwesome";
 	content: '';
 	display: inline-block;
@@ -98,7 +100,31 @@
 }
 
 .profiles ::content a {
+	font-size: 0px;
+	white-space: nowrap;
+}
+
+.profiles ::content a::before {
 	font-size: 30px;
+}
+
+.profiles ::content a.linkedin::before {
+	content: '\f0e1';
+}
+
+.profiles ::content a.stackoverflow::before {
+	content: '\f16c';
+}
+
+.profiles ::content a.github::before {
+	content: '\f09b';
+}
+
+.profiles ::content a.twitter::before {
+	content: '\f099';
+}
+
+.profiles ::content a {
 	text-align: center;
 	width: 50px;
 	display: inline-block;
@@ -146,10 +172,9 @@
 	}
 
 	.avatar {
-		width: 200px;
-		height: 200px;
-		margin: 0;
-		margin-right: 20px;
+		width: 120px;
+		height: 120px;
+		margin: 20px;
 		display: inline-block;
 		vertical-align: middle;
 	}
@@ -169,16 +194,32 @@
 	}
 
 	.card-container {
-		position: absolute;
 		height: auto;
-		width: 300px;
-		top: 0;
-		right: 0;
-		left: auto;
-		bottom: auto;
 	}
 
 	.card {
 		position: static;
+	}
+
+	.card /deep/ {
+		box-shadow: none !important;
+		width: 100%;
+	}
+
+	.contact-info, .profiles {
+		display: inline-block;
+		width: 40%;
+		vertical-align: top;
+	}
+
+	.profiles ::content a {
+		display: block;
+		font-size: 16px;
+		width: auto;
+		text-align: left;
+	}
+
+	.profiles ::content a::before {
+		font-size: 16px;
 	}
 }
