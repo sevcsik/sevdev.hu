@@ -80,3 +80,37 @@ img {
 		font-size: 14px;
 	}
 }
+
+@media print {
+	img {
+		display: block;
+		width: 100%;
+		max-width: 450px;
+		float: left;
+	}
+
+	.item {
+		position: absolute;
+		right: 0;
+		padding: 2px 10px 2px 2px
+	}
+
+	.item .left {
+		line-height: 63px;
+		font-size: 24px;
+		width: 70px;
+	}
+
+	.item .right {
+		padding: 4px 10px 0px 10px;
+	}
+
+	item .title {
+		font-size: 16px;
+	}
+
+	.item .subtitle {
+		font-size: 12px;
+	}
+}
+
