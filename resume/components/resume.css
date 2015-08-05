@@ -11,8 +11,16 @@ header {
 	overflow: hidden;
 }
 
-::content #contact {
+::content sd-contact {
 	margin-bottom: 100px;
+}
+
+::content sd-contact /deep/ .fixed * {
+	transition: opacity 2s;
+}
+
+::content sd-contact.scroll-hidden-above /deep/ .fixed * {
+	opacity: 0.7;
 }
 
 ::content paper-toolbar {

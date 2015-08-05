@@ -59,6 +59,12 @@ img {
 }
 
 @media only screen and (min-width: 1030px) {
+	.container {
+		max-width: 730px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.item .left {
 		font-size: 32px;
 		line-height: 63px;
