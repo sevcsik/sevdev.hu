@@ -8,6 +8,7 @@ import 'components/menu.js';
 import 'components/contact.js';
 import 'components/skillset.js';
 import 'components/project.js';
+import 'components/timeline.js';
 
 Polymer.Base.importHref('components/resume.html', function() {
 

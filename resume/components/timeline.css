@@ -1,0 +1,76 @@
+.container {
+	margin: 20px;
+	position: relative;
+}
+
+img {
+	display: none;
+}
+
+.item { 
+	background: white;
+	text-align: left;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.item .left {
+	font-size: 16px;
+	width: 50px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.item .subtitle {
+	font-size: 12px;
+	font-style: italic;
+}
+
+@media only screen and (min-width: 900px) {
+	img {
+		display: block;
+		width: 100%;
+		max-width: 600px;
+		float: left;
+	}
+
+	.item {
+		position: absolute;
+		right: 0;
+	}
+
+	.item .left {
+		line-height: 63px;
+		font-size: 24px;
+		width: 70px;
+	}
+
+	.item .right {
+		padding: 4px 10px 0px 10px;
+	}
+
+	item .title {
+		font-size: 16px;
+	}
+
+	.item .subtitle {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (min-width: 1030px) {
+	.item .left {
+		font-size: 32px;
+		line-height: 63px;
+		width: 90px;
+	}
+
+	.item .title {
+		font-size: 20px;
+		margin-bottom: 8px;
+	}
+
+	.item .subtitle {
+		font-size: 14px;
+	}
+}
