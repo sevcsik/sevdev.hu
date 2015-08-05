@@ -2,10 +2,6 @@
  * Main stylesheet
  */
 
-header {
-	--default-primary-color: #673AB7;
-}
-
 .content {
 	text-align: center;
 	overflow: hidden;
@@ -19,17 +15,25 @@ header {
 	transition: opacity 2s;
 }
 
-::content sd-contact.scroll-hidden-above /deep/ .fixed * {
-	opacity: 0.7;
+[drawer] {
+	background: #eee
+}
+
+@media only screen {
+	::content sd-contact.scroll-hidden-above /deep/ .fixed * {
+		opacity: 0.7;
+	}
 }
 
 ::content paper-toolbar {
 	transition: opacity 0.5s, transform 0.5s;
 }
 
-::content paper-toolbar.scroll-hidden-below {
-	opacity: 0;
-	transform: translateX(500px);
+@media only screen {
+	::content paper-toolbar.scroll-hidden-below {
+		opacity: 0;
+		transform: translateX(500px);
+	}
 }
 
 ::content sd-contact /deep/ .card {
@@ -37,9 +41,11 @@ header {
 	transform-origin: 0 100%;
 }
 
-::content sd-contact.scroll-hidden-q2 /deep/ .card {
-	transform: rotateX(45deg) translateY(-200px);
-	opacity: 0;
+@media only screen {
+	::content sd-contact.scroll-hidden-q2 /deep/ .card {
+		transform: rotateX(45deg) translateY(-200px);
+		opacity: 0;
+	}
 }
 
 ::content sd-skillset {
@@ -50,18 +56,20 @@ header {
 	display: block;
 }
 
-::content sd-skillset,
-::content sd-project {
-	transform: scale(0.8) translateY(100px);
-	opacity: 0;
-}
+@media only screen {
+	::content sd-skillset,
+	::content sd-project {
+		transform: scale(0.8) translateY(100px);
+		opacity: 0;
+	}
 
-::content sd-skillset.scroll-visible-q2,
-::content sd-skillset.scroll-visible-bottom,
-::content sd-project.scroll-visible-q1,
-::content sd-project.scroll-visible-bottom {
-	transform: none;
-	opacity: 1;
+	::content sd-skillset.scroll-visible-q2,
+	::content sd-skillset.scroll-visible-bottom,
+	::content sd-project.scroll-visible-q1,
+	::content sd-project.scroll-visible-bottom {
+		transform: none;
+		opacity: 1;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
@@ -73,6 +81,33 @@ header {
 	}
 
 	::content sd-project {
+		margin: 20px;
+	}
+}
+
+@media print {
+	paper-scroll-header-panel /deep/ #headerContainer {
+		display: none;
+	}
+
+	paper-drawer-panel /deep/ #drawer {
+		display: none;
+	}
+
+	paper-drawer-panel /deep/ #main {
+		left: 0 !important;
+	}
+
+	::content sd-skillset {
+		display: inline-block;
+		width: 30%;
+		vertical-align: top;
+	}
+
+	::content sd-project {
+		display: inline-block;
+		width: 40%;
+		vertical-align: top;
 		margin: 20px;
 	}
 }

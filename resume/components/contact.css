@@ -125,3 +125,60 @@
 		margin-bottom: 20px;
 	}
 }
+
+@media print {
+	:host {
+		text-align: left;
+	}
+
+	.fixed {
+		display: block;
+		left: auto;
+		position: static;
+		background-image: none;
+	}
+
+	.content {
+		display: inline-block;
+		position: static;
+		margin: 0;
+		width: auto;
+	}
+
+	.avatar {
+		width: 200px;
+		height: 200px;
+		margin: 0;
+		margin-right: 20px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.name-container {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: left;
+	}
+
+	.name ::content .name {
+		color: black;
+	}
+
+	.title ::content .title {
+		color: black;
+	}
+
+	.card-container {
+		position: absolute;
+		height: auto;
+		width: 300px;
+		top: 0;
+		right: 0;
+		left: auto;
+		bottom: auto;
+	}
+
+	.card {
+		position: static;
+	}
+}
