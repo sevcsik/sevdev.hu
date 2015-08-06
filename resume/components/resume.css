@@ -5,14 +5,32 @@
 .content {
 	text-align: center;
 	overflow: hidden;
+	position: relative;
 }
 
-#github-ribbon {
+/* if we put this on .content,
+ * Chrome rendering becomes
+ * painfully slow.
+ *
+ * If we put it on main,
+ * scrollbars disappear
+ * and scroll freezes
+ * after a while.
+ */
+
+/*
+::content main {
+	z-index: 0;
+	position: relative;
+}
+*/
+
+::content #github-ribbon {
 	position: absolute;
-	top: 56px;
+	top: 0px;
 	right: 0;
 	border: 0;
-	z-index: 2;
+	z-index: 1;
 }
 
 ::content sd-contact {
@@ -80,22 +98,12 @@
 	}
 }
 
-@media only screen and (min-width: 640px) {
-	#github-ribbon {
-		top: 64px;
-	}
-}
-
 @media only screen and (min-width: 1024px) {
 	::content sd-skillset,
     ::content sd-project {
 		display: inline-block;
 		width: 40%;
 		vertical-align: top;
-	}
-
-	::content sd-project {
-		margin: 20px;
 	}
 }
 
@@ -152,7 +160,7 @@
 		break-before: always;
 	}
 
-	#github-ribbon {
+	::content #github-ribbon {
 		display: none;
 	}
 }
