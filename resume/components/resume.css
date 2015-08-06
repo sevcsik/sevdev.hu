@@ -7,6 +7,14 @@
 	overflow: hidden;
 }
 
+#github-ribbon {
+	position: absolute;
+	top: 56px;
+	right: 0;
+	border: 0;
+	z-index: 2;
+}
+
 ::content sd-contact {
 	margin-bottom: 100px;
 }
@@ -69,6 +77,12 @@
 	::content sd-project.scroll-visible-bottom {
 		transform: none;
 		opacity: 1;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	#github-ribbon {
+		top: 64px;
 	}
 }
 
@@ -136,6 +150,10 @@
 	::content #timeline {
 		page-break-before: always;
 		break-before: always;
+	}
+
+	#github-ribbon {
+		display: none;
 	}
 }
 
