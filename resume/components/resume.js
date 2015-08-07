@@ -10,12 +10,18 @@ import 'components/skillset.js';
 import 'components/project.js';
 import 'components/timeline.js';
 
+import branding from 'branding.js';
+
 Polymer.Base.importHref('components/resume.html', function() {
 
 Polymer({
 	is: 'sd-resume',
 
 	ready() {
+		if (branding) {
+			this.classList.add(`branding-${branding}`);
+		}
+
 		this.classList.remove('plain');
 		this.classList.add('rich');
 

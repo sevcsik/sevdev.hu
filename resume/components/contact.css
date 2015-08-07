@@ -203,6 +203,7 @@
 
 	.card {
 		position: static;
+		white-space: nowrap;
 	}
 
 	.card /deep/ {
@@ -212,7 +213,7 @@
 
 	.contact-info, .profiles {
 		display: inline-block;
-		width: 40%;
+		width: 50%;
 		vertical-align: top;
 	}
 
@@ -225,5 +226,58 @@
 
 	.profiles ::content a::before {
 		font-size: 16px;
+	}
+
+	/* ScreamingBox-specific styles */
+
+	:host.branding-screamingbox .fixed {
+		background-image: url(../images/screamingbox_header.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	:host.branding-screamingbox .name ::content .name {
+		font-weight: bold;
+		text-transform: uppercase;
+		font-family: "Open Sans", sans-serif;
+		margin-bottom: 30px;
+		font-size: 20px;
+	}
+
+	:host.branding-screamingbox .title ::content .title {
+		font-size: 10px;
+	}
+
+	:host.branding-screamingbox .avatar {
+		width: 80px;
+		height: 80px;
+		margin: 35px 10px 35px 35px;
+	}
+	
+	:host.branding-screamingbox .contact-info ::content {
+		width: 0px;
+	}
+
+	:host.branding-screamingbox .contact-info ::content > * {
+		display: none;
+	}
+
+	:host.branding-screamingbox .contact-info ::content.email,
+	:host.branding-screamingbox .contact-info ::content.site {
+		color: white;
+		position: absolute;
+		right: 60px;
+		top: -68px;
+		display: block;
+		font-size: 10px;
+	}
+
+	:host.branding-screamingbox .contact-info ::content.site {
+		top: -100px;
+	}
+
+	:host.branding-screamingbox .contact-info ::content.email::before,
+	:host.branding-screamingbox .contact-info ::content.site::before {
+		display: none;
 	}
 }
