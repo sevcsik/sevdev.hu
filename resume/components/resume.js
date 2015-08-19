@@ -3,6 +3,8 @@
  * @class sd-resume
  */
 
+import analytics from 'analytics.js';
+
 import 'components/header.js';
 import 'components/menu.js';
 import 'components/contact.js';
@@ -55,10 +57,12 @@ Polymer({
 						            : n === 4 ? '-bottom'
 						            : `-q${n}`;
 
-						if (isQuartileVisible(n))
+						if (isQuartileVisible(n)) {
 						   	classes += (' scroll-visible' + postfix);
-						else
+							analytics.fragmentView(child.id);
+						} else {
 							classes += (' scroll-hidden' + postfix);
+						}
 					});
 				} else {
 					classes += ' scroll-hidden';
@@ -76,6 +80,8 @@ Polymer({
 
 		onScroll(); // apply scroll classes as soon as everyting is set up
 		this.$.panel.$.mainContainer.addEventListener('scroll', onScroll);
+
+		analytics.ready();
 	}
 });
 
