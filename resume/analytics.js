@@ -27,7 +27,7 @@ export default {
 
 	fragmentView(fragmentId) {
 		// send fragmentViews only once
-		if (!viewedFragments.includes(fragmentId)) {
+		if (!viewedFragments.find(e => e === fragmentId)) {
 			keen.addEvent('fragmentView', addTime({ fragment: fragmentId }));
 			viewedFragments.push(fragmentId);
 		}
