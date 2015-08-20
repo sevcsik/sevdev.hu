@@ -21,10 +21,8 @@ Polymer({
 		this.classList.remove('plain');
 		this.classList.add('rich');
 
-		this.addEventListener('sd-menu-click', 
-			() => this.$.drawer.togglePanel());;
-
-		let previousPos = 0;
+		this.addEventListener('sd-menu-click',
+			() => this.$.drawer.togglePanel());
 
 		// Add scroll visibility classes to the positions to every child
 		let onScroll = () => {
@@ -47,19 +45,21 @@ Polymer({
 
 
 				if ((childTop >= viewTop && childTop < viewBottom)
-				   || (childBottom >= viewTop && childBottom < viewBottom)) { 
+					|| (childBottom >= viewTop && childBottom < viewBottom)) {
 					// child is visible
 					classes += ' scroll-visible';
-					
+
 					// add class for every visible quartile
 					[0, 1, 2, 3, 4].forEach((n) => {
 						let postfix = n === 0 ? '-top'
-						            : n === 4 ? '-bottom'
-						            : `-q${n}`;
+									: n === 4 ? '-bottom'
+									: `-q${n}`;
 
 						if (isQuartileVisible(n)) {
-						   	classes += (' scroll-visible' + postfix);
-							analytics.fragmentView(child.id);
+							classes += (' scroll-visible' + postfix);
+							if (child.id) {
+								analytics.fragmentView(child.id);
+							}
 						} else {
 							classes += (' scroll-hidden' + postfix);
 						}
@@ -68,11 +68,11 @@ Polymer({
 					classes += ' scroll-hidden';
 
 					if (childTop < viewTop) {
-					   classes += ' scroll-hidden-above';
+						classes += ' scroll-hidden-above';
 					} else {
-					   classes += ' scroll-hidden-below';
+						classes += ' scroll-hidden-below';
 					}
-				}	   
+				}
 
 				child.className = classes;
 			});
