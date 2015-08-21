@@ -5,7 +5,7 @@
  * @class analytics
  */
 
-import Keen from 'bower_components/keen-js/dist/keen.js';
+import Keen from '../bower_components/keen-js/dist/keen.js';
 
 let P = 'analitycs: ';
 let keen = new Keen(

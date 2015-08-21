@@ -9,6 +9,9 @@ rules:
   no-console: 0
   curly: [1, "multi-line"]
   no-mixed-spaces-and-tabs: [1, "smart-tabs"]
+  no-multi-spaces: 0
+  new-cap: 0
+  no-underscore-dangle: 0
 ecmaFeatures:
   modules: true
 

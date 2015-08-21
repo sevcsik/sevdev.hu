@@ -1,8 +1,9 @@
+/* global Polymer */
 /**
  * Display a single skillset
  */
 
-import d3 from 'bower_components/d3/d3.min.js';
+import d3 from '../bower_components/d3/d3.js';
 
 Polymer.Base.importHref('components/skillset.html', () => {
 
@@ -30,9 +31,9 @@ Polymer({
 			.filter((d) => d.featured)
 			.classed('column sd-skillset', true) // Polymer should add this
 			.attr('x', (d, i) => i * 100 / featured.length)
-			.attr('y', (d, i) => 25 * (4 - d.level))
+			.attr('y', d => 25 * (4 - d.level))
 			.attr('width', 100 / featured.length)
-			.attr('height', (d, i) => (d.level + 1) * 25)
+			.attr('height', d => (d.level + 1) * 25)
 		;
 
 		d3.select(Polymer.dom(this.root).querySelector('#labels'))
@@ -58,7 +59,6 @@ Polymer({
 			.classed('level-2', (d) => d.level === 2)
 			.classed('level-3', (d) => d.level === 3)
 			.text((d) => d.name);
-			
 	},
 
 	_parseDOM() {

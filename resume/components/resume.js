@@ -1,18 +1,19 @@
+/* global Polymer */
 /**
  * Root element
  * @class sd-resume
  */
 
-import analytics from 'analytics.js';
+import analytics from '../modules/analytics.js';
+import branding from '../modules/branding.js';
 
-import 'components/header.js';
-import 'components/menu.js';
-import 'components/contact.js';
-import 'components/skillset.js';
-import 'components/project.js';
-import 'components/timeline.js';
+import '../components/header.js';
+import '../components/menu.js';
+import '../components/contact.js';
+import '../components/skillset.js';
+import '../components/project.js';
+import '../components/timeline.js';
 
-import branding from 'branding.js';
 
 Polymer.Base.importHref('components/resume.html', function() {
 

@@ -1,3 +1,4 @@
+/* global Polymer */
 /**
  * Root element
  * @class sd-resume
@@ -10,10 +11,10 @@ Polymer({
 	listeners: { 'menu.click': 'onMenuClick'
 	           , 'print.click': 'onPrintClick'
 	           },
-	onMenuClick(e) {
+	onMenuClick() {
 		this.fire('sd-menu-click');
 	},
-	onPrintClick(e) {
+	onPrintClick() {
 		window.print();
 	}
 });

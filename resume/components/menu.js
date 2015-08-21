@@ -1,9 +1,10 @@
+/* global Polymer */
 /**
  * Navigation sidebar
  * @class sd-menu
  */
 
-import 'components/header.js';
+import '../components/header.js';
 
 Polymer.Base.importHref('components/menu.html', function() {
 
