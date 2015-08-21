@@ -5,8 +5,6 @@
 
 import branding from '../modules/branding.js';
 
-Polymer.Base.importHref('components/contact.html', function() {
-
 Polymer({
 	is: 'sd-contact',
 	ready() {
@@ -30,6 +28,4 @@ Polymer({
 			}
 		}
 	}
-});
-
 });

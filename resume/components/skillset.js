@@ -5,8 +5,6 @@
 
 import d3 from '../bower_components/d3/d3.js';
 
-Polymer.Base.importHref('components/skillset.html', () => {
-
 var levels =
 	{ beginner: 1
 	, experienced: 2
@@ -79,4 +77,3 @@ Polymer({
 	}
 });
 
-});

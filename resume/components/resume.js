@@ -14,9 +14,6 @@ import '../components/skillset.js';
 import '../components/project.js';
 import '../components/timeline.js';
 
-
-Polymer.Base.importHref('components/resume.html', function() {
-
 Polymer({
 	is: 'sd-resume',
 
@@ -90,6 +87,4 @@ Polymer({
 
 		analytics.ready();
 	}
-});
-
 });

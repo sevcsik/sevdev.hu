@@ -4,8 +4,6 @@
  * @class sd-resume
  */
 
-Polymer.Base.importHref('components/header.html', function() {
-
 Polymer({
 	is: 'sd-header',
 	listeners: { 'menu.click': 'onMenuClick'
@@ -17,6 +15,4 @@ Polymer({
 	onPrintClick() {
 		window.print();
 	}
-});
-
 });

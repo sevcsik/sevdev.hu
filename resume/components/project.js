@@ -1,10 +1,8 @@
-"format es6";
+/* global Polymer */
 /**
  * Project component
  * @class sd-project
  */
-
-Polymer.Base.importHref('components/project.html', function() {
 
 Polymer({
 	is: 'sd-project',
@@ -16,6 +14,4 @@ Polymer({
 			Polymer.dom(this.$.header).classList.add('has-image');
 		}
 	}
-});
-
 });
