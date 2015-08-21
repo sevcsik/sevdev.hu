@@ -1,7 +1,14 @@
----
-	env:
-		browser: true
-		es6: true
-		modules: true
-	globals:
-		Polymer: true
+parser:  babel-eslint
+env:
+  browser: true
+  es6: true
+globals:
+  Polymer: true
+rules:
+  quotes: [0, "single"]
+  no-console: 0
+  curly: [1, "multi-line"]
+  no-mixed-spaces-and-tabs: [1, "smart-tabs"]
+ecmaFeatures:
+  modules: true
+
