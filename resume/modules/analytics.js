@@ -1,11 +1,11 @@
-/* global t0 */
+/* global t0, Keen */
 
 /**
  * Analytics module for keen.io
  * @class analytics
  */
 
-import Keen from '../bower_components/keen-js/dist/keen.js';
+import '../bower_components/keen-js/dist/keen.js';
 
 let P = 'analitycs: ';
 let keen = new Keen(
