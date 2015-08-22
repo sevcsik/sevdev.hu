@@ -9,24 +9,20 @@
 		window.Polymer = window.Polymer || {};
 		//window.Polymer.dom = 'shadow';
 	</script>
-	<script src="bower_components/es6-shim/es6-shim.min.js"></script>
-	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.1/es6-shim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.12/webcomponents.min.js"></script>
 	<link id="polymer-import" rel="import" href="bower_components/polymer/polymer.html">
 	<link rel="import" href="components/resume.html">
-	<script src="dist/scripts.js"></script>
-	<!--
 	<script>
 		(function() {
-			var BUNDLE_PATH = 'scripts.min.js';
-			if (document.location.pathname.match(/index_debug.html$/)) {
-				BUNDLE_PATH = 'scripts.js';
-			}
-
+			var BUNDLE_PATH = "dist/scripts.js"; // this will be replaced after vulcanization
 			var script = document.createElement('SCRIPT');
 			script.src = BUNDLE_PATH;
 
-			// wait for Polymer import
-			if (!document.querySelector('#polymer-import').import) {
+			var link = document.querySelector('#polymer-import');
+
+			// wait for Polymer import if necessary
+			if (link && link.import) {
 				console.log('Delaying initial import until polymer is ready');
 				document.querySelector('#polymer-import').addEventListener('load', 
 					function() {
@@ -36,9 +32,8 @@
 			} else {
 				document.head.appendChild(script);
 			}
-		});
+		})();
 	</script>
-	-->
 	<link href='//fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
