@@ -37,3 +37,8 @@ gulp.task('vulcanize', ['webpack'], function() {
 		.pipe(rename('index-debug.html'))
 		.pipe(gulp.dest('dist/'));
 });
+
+gulp.task('copy-images', function() {
+	return gulp.src('images/**')
+		.pipe(gulp.dest('dist/images'));
+});
