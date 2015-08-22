@@ -18,7 +18,7 @@ gulp.task('webpack', function() {
 		.pipe(gulp.dest('dist/'));
 });
 
-gulp.task('minify', function() {
+gulp.task('minify', ['webpack'], function() {
 	return gulp.src('dist/scripts.js')
 		.pipe(uglify())
 		.pipe(rename('scripts.min.js'))
