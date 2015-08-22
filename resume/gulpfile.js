@@ -42,3 +42,5 @@ gulp.task('copy-images', function() {
 	return gulp.src('images/**')
 		.pipe(gulp.dest('dist/images'));
 });
+
+gulp.task('default', ['webpack', 'minify', 'vulcanize', 'copy-images']);
