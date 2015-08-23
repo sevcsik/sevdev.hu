@@ -1,10 +1,10 @@
---------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
+
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Data.Maybe (fromMaybe)
+import qualified Data.Map as M
 
-
---------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -18,6 +18,7 @@ main = hakyll $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -25,14 +26,16 @@ main = hakyll $ do
     create ["index.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            tpl <- loadBody "templates/post.html" 
             let ctx =
-                    listField "posts" ctx (return posts)     `mappend`
                     constField "title" "Latest"              `mappend`
+                    bodyField "posts"                        `mappend`
                     defaultContext
 
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/full-post-list.html" ctx
+            loadAllSnapshots "posts/*" "content"
+                >>= fmap (take 10) . recentFirst
+                >>= applyTemplateList tpl postCtx
+                >>= makeItem
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
@@ -65,9 +68,11 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateCompiler
 
-
---------------------------------------------------------------------------------
 postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+postCtx = mconcat 
+    [ dateField "date" "%B %e, %Y"
+    , field "title" $ \item -> do
+        metadata <- getMetadata (itemIdentifier item)
+        return $ fromMaybe "" $ M.lookup "title" metadata
+    , defaultContext
+    ]
