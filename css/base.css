@@ -191,6 +191,7 @@ header {
   width: 100%;
   min-height: 400px;
   vertical-align: top;
+  padding-top: 40px;
 
   -webkit-transition-property: margin-left, opacity, height;
   -webkit-transition-duration: 0.3s;
@@ -214,12 +215,12 @@ header {
   opacity: 0.2;
 }
 
-.page.inactive > h1
+#content > .page.inactive > h1
 {
   opacity: 0;
 }
 
-.page > h1
+#content > .page > h1
 {
 	text-transform: lowercase;
 	position: absolute;
@@ -232,15 +233,24 @@ header {
 	-webkit-transition: opacity 0.3s;
 }
 
-sd-post .ellipsis {
-	margin-left: 20px;
+#content li {
+	margin-left: 30px;
+}
+
+sd-post {
+	display: block;
+	margin-bottom: 40px;
+}
+
+sd-post[listitem] {
+	margin-bottom: 0px;
 }
 
 sd-post > h2 {
 	font-size: 28px;
 	color: #ff9900;
 	font-weight: bold;
-	margin: 30px 0 0 0; 
+	margin: 0; 
 }
 
 sd-post > .info {
@@ -290,4 +300,9 @@ sd-post a[href^=http]:after
   font-weight: normal;
   font-family: FontAwesome;
 }
+
+sd-post .ellipsis {
+	margin-left: 20px;
+}
+
 
