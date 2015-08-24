@@ -6,15 +6,21 @@ import           Data.Maybe (fromMaybe)
 import qualified Data.Map as M
 
 postCtx :: Context String
-postCtx = mconcat 
+postCtx = ( mconcat 
     [ dateField "date" "%B %e, %Y"
     , constField "base" ".."
     , constField "index" "0"
     , field "title" $ \item -> do
         metadata <- getMetadata (itemIdentifier item)
         return $ fromMaybe "" $ M.lookup "title" metadata
+    , field "titleLength" $ \item -> do
+        metadata <- getMetadata (itemIdentifier item)
+        return $ 
+            if (< 16) . length . (fromMaybe "") $ M.lookup "title" metadata
+            then "short"
+            else "long"
     , defaultContext
-    ]
+    ] )
 
 -- borrowed from https://github.com/travisbrown/metaplasm
 getTeaser :: Item String -> Item String

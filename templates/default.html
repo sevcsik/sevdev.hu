@@ -55,7 +55,7 @@
     </nav>
     <div id="content" class="focus-$index$">
       <div class="page">
-		<h1>$title$</h1>
+		<h1 $if(titleLength)$ class="$titleLength$" $endif$>$title$</h1>
         $body$
       </div>
     </div>
