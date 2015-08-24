@@ -339,7 +339,7 @@ sd-post a:active
 sd-post a[href^=http]:after
 {
   content: "\f08e";
-  margin-left: -2px;
+  margin-left: 5px;
   color: rgba(128, 128, 128, 0.5);
   text-shadow: none;
   font-size: 60%;
