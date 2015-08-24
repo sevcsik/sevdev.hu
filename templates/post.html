@@ -1,11 +1,13 @@
-<article>
+<sd-post full title="$title$">
 	<div class="info">
-		Posted on $date$
+		Posted on <span date>$date$</span>
 		$if(author)$
-			by $author$
+			by <span author>$author$</span>
 		$endif$ - 
-		<a href="$url$">permalink</a>
+		<a href="$url$" url>permalink</a>
 		<a href="#comments">comments</a>
 	</div>
-$body$
-</article>
+	<article>
+		$body$
+	</article>
+</sd-post>

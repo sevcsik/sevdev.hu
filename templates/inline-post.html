@@ -1,17 +1,17 @@
+<h2>
+	<a href="$url$" title>$title$</a>
+</h2>
+<div class="info">
+	Posted on <span date>$date$</span>
+	$if(author)$
+		by <span author>$author$</span>
+	$endif$ -
+	<a href="$url$" url>full post</a>
+	<a href="$url$#comments">comments</a>
+</div>
 <article>
-	<h2>
-		<a href="$url$">$title$</a>
-	</h2>
-	<div class="info">
-		Posted on $date$
-		$if(author)$
-			by $author$
-		$endif$ -
-		<a href="$url$">full post</a>
-		<a href="$url$#comments">comments</a>
-	</div>
 	$body$
-	<p>
-		<a href="$url$">…</a>
-	</p>
 </article>
+<div class="ellipsis">
+	<a href="$url$">…</a>
+</div>
