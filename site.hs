@@ -47,7 +47,7 @@ main = hakyll $ do
         compile $ do
             tpl <- loadBody "templates/post-item.html" 
             let ctx =
-                    constField "title" "Latest"              `mappend`
+                    constField "title" "Latest posts"         `mappend`
                     defaultContext
 
             loadAllSnapshots "posts/*" "teaser"
