@@ -9,6 +9,7 @@ postCtx :: Context String
 postCtx = mconcat 
     [ dateField "date" "%B %e, %Y"
     , constField "base" ".."
+    , constField "index" "0"
     , field "title" $ \item -> do
         metadata <- getMetadata (itemIdentifier item)
         return $ fromMaybe "" $ M.lookup "title" metadata
@@ -50,6 +51,7 @@ main = hakyll $ do
             let ctx =
                     constField "title" "Latest posts"         `mappend`
                     constField "base" "."                     `mappend`
+                    constField "index" "1"                    `mappend`
                     defaultContext
 
             loadAllSnapshots "posts/*" "teaser"
@@ -67,6 +69,7 @@ main = hakyll $ do
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Archive"             `mappend`
                     constField "base" "."                    `mappend`
+                    constField "index" "3"                   `mappend`
                     defaultContext
 
             makeItem ""
@@ -81,6 +84,7 @@ main = hakyll $ do
             let ctx =
                     constField "title" "Home"                `mappend`
                     constField "base" "."                    `mappend`
+                    constField "index" "3"                   `mappend`
                     defaultContext
 
             pandocCompiler

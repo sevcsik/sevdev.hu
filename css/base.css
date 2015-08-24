@@ -125,9 +125,13 @@ header {
   transition: left 0.3s;
 }
 
+#menu.focus-0 > #menu_slider {
+	text-align: center;
+}
+
 #menu.focus-1 > #menu_slider { left: 390px }
-#menu.focus-2 > #menu_slider { left: 210px }
-#menu.focus-3 > #menu_slider { left: 30px }
+#menu.focus-2 > #menu_slider { left: 170px }
+#menu.focus-3 > #menu_slider { left: -50px }
 #menu.focus-4 > #menu_slider { left: -150px }
 #menu.focus-5 > #menu_slider { left: -330px }
 
@@ -147,6 +151,10 @@ header {
   height: 5px;
   background-color: #ff9900;
   z-index: 0;
+}
+
+#menu.focus-0 #menu_selector {
+	display: none;
 }
 
 #content
