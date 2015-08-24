@@ -1,9 +1,11 @@
 <sd-post full title="$title$">
 	<div class="info">
-		Posted on <span date>$date$</span>
-		$if(author)$
-			by <span author>$author$</span>
-		$endif$ - 
+		<span class="meta">
+			Posted on <span date>$date$</span>
+			$if(author)$
+				by <span author>$author$</span>
+			$endif$
+		</span>
 		<a href="$url$" url>permalink</a>
 		<a href="#comments">comments</a>
 	</div>

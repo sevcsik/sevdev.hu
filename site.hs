@@ -8,6 +8,7 @@ import qualified Data.Map as M
 postCtx :: Context String
 postCtx = mconcat 
     [ dateField "date" "%B %e, %Y"
+    , constField "base" ".."
     , field "title" $ \item -> do
         metadata <- getMetadata (itemIdentifier item)
         return $ fromMaybe "" $ M.lookup "title" metadata
@@ -48,6 +49,7 @@ main = hakyll $ do
             tpl <- loadBody "templates/post-item.html" 
             let ctx =
                     constField "title" "Latest posts"         `mappend`
+                    constField "base" "."                     `mappend`
                     defaultContext
 
             loadAllSnapshots "posts/*" "teaser"
@@ -64,6 +66,7 @@ main = hakyll $ do
             let ctx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Archive"             `mappend`
+                    constField "base" "."                    `mappend`
                     defaultContext
 
             makeItem ""
@@ -77,6 +80,7 @@ main = hakyll $ do
         compile $ do
             let ctx =
                     constField "title" "Home"                `mappend`
+                    constField "base" "."                    `mappend`
                     defaultContext
 
             pandocCompiler
