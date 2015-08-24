@@ -26,7 +26,7 @@ main = hakyll $ do
     create ["index.html"] $ do
         route idRoute
         compile $ do
-            tpl <- loadBody "templates/post.html" 
+            tpl <- loadBody "templates/inline-post.html" 
             let ctx =
                     constField "title" "Latest"              `mappend`
                     bodyField "posts"                        `mappend`
