@@ -39,14 +39,13 @@ main = hakyll $ do
 
             saveSnapshot "full" full
             saveSnapshot "teaser" teaser
-            loadAndApplyTemplate "templates/post.html" postCtx full
-                >>= loadAndApplyTemplate "templates/default.html" postCtx
+            loadAndApplyTemplate "templates/default.html" postCtx full
                 >>= relativizeUrls
 
     create ["index.html"] $ do
         route idRoute
         compile $ do
-            tpl <- loadBody "templates/inline-post.html" 
+            tpl <- loadBody "templates/post-item.html" 
             let ctx =
                     constField "title" "Latest"              `mappend`
                     defaultContext
