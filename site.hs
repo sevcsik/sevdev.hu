@@ -20,6 +20,14 @@ postCtx = mconcat
 getTeaser :: Item String -> Item String
 getTeaser = fmap (unlines . takeWhile (/= "<!-- TEASER -->") . lines)
 
+feedConfig = FeedConfiguration
+    { feedTitle       = "sevdev blog"
+    , feedDescription = ""
+    , feedAuthorName  = "Andras Sevcsik"
+    , feedAuthorEmail = "sevcsik@sevdev.hu"
+    , feedRoot        = "https://sevdev.hu/~sevcsik"
+    }
+
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -41,6 +49,7 @@ main = hakyll $ do
 
             saveSnapshot "full" full
             saveSnapshot "teaser" teaser
+            saveSnapshot "plain" compiled
             loadAndApplyTemplate "templates/default.html" postCtx full
                 >>= relativizeUrls
 
@@ -92,4 +101,21 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
-    match "templates/*" $ compile templateCompiler
+    match "templates/*" $ compile templateCompiler   
+    
+    create ["rss.xml"] $ do
+        route idRoute
+        compile $ do
+            let ctx = postCtx `mappend` bodyField "description"
+            posts <- fmap (take 20) . recentFirst =<<
+                loadAllSnapshots "posts/*" "plain"
+            renderRss feedConfig ctx posts
+
+    create ["atom.xml"] $ do
+        route idRoute
+        compile $ do
+            let ctx = postCtx `mappend` bodyField "description"
+            posts <- fmap (take 20) . recentFirst =<<
+                loadAllSnapshots "posts/*" "plain"
+            renderAtom feedConfig ctx posts
+      
