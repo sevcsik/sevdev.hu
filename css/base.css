@@ -1,6 +1,6 @@
 /* theme: https://kuler.adobe.com/sevdevhu-theme-based-on-AlMo3000-color-theme-3699265/ */
 
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 @import url(//fonts.googleapis.com/css?family=Orbitron:500,700|Audiowide);
 @import url(//fonts.googleapis.com/css?family=Josefin+Sans:400,600);
 
@@ -79,6 +79,36 @@ header {
 	position: absolute;
 	left: 20px;
 	top: 43px;
+}
+
+header .feeds {
+	position: absolute;
+	right: 45px;
+	top: 0px;
+}
+
+header .feeds a {
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 10px;
+	color: #718db0;
+	opacity: 0.2;
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	-ms-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+header .feeds:hover a {
+	opacity: 0.6;
+}
+
+header .feeds a:hover {
+	opacity: 1;
+}
+
+header .feeds i {
+	font-size: 14px;
 }
 
 #menu
