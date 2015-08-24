@@ -214,15 +214,6 @@ header {
   opacity: 0.2;
 }
 
-article
-{
-  padding: 30px 20px 10px 20px;
-  text-align: left;
-  color: #333333;
-  white-space: normal;
-  position: relative;
-}
-
 .page.inactive > h1
 {
   opacity: 0;
@@ -259,6 +250,15 @@ sd-post > .info {
 
 sd-post > .info > * {
 	margin-right: 10px;
+}
+
+sd-post article
+{
+  padding: 30px 20px 10px 20px;
+  text-align: left;
+  color: #333333;
+  white-space: normal;
+  position: relative;
 }
 
 sd-post p
