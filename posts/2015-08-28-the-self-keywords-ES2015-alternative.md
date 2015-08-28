@@ -8,7 +8,7 @@ a plain object. With static methods, [you can easily do this][1].
 
 However, if you extend your class with these alternative "constructors",
 you probably don't want to redefine each in your child class just to
-use your it's own constructor, not the parent's.
+use it's own constructor, not the parent's.
 
 <!-- TEASER -->
 
@@ -61,7 +61,7 @@ the trick in your static method.
 *An interesting bit is that even `B.prototype.constructor.name` is `"B"`,
 the Chrome debugger still prints it as `Object { ... }`. After setting the
 constructor on the instance explicitly, the correct `B { ... }` form shows up.
-Apperently you don't need to do this if you're the `new` keyword.*
+Apperently you don't need to do this if you're the using the `new` keyword.*
 
 [1]: http://odetocode.com/blogs/scott/archive/2015/02/02/static-members-in-es6.aspx
 [2]: https://babeljs.slack.com
