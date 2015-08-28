@@ -19,7 +19,7 @@ Unfortunately ES2015 doesn't have a keyword like this. However, due to
 the nature of Javascript, you can use the `this` keyword to access it.
 As the `this` keyword is not bound in static methods (thank you
 [BabelJS@slack][2] for confirming it), as long as call it as a method
-of the child class, it will refer to it.
+of the child class, `this` will refer to it.
 
 Here's an example of having a class which can be instantiated with a
 regular constructor or from a plain object:
