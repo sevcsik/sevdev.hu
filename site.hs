@@ -62,6 +62,18 @@ main = hakyll $ do
     create ["index.html"] $ do
         route idRoute
         compile $ do
+            let ctx = constField "title" "Home"               `mappend`
+                      constField "base" "."                   `mappend` 
+                      constField "index" "0"                  `mappend`
+                      defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/splash.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+  
+    create ["latest.html"] $ do
+        route idRoute
+        compile $ do
             tpl <- loadBody "templates/post-item.html" 
             let ctx =
                     constField "title" "Latest posts"         `mappend`
