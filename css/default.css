@@ -1,8 +1,25 @@
+@import url("//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css");
+
 body {
-    color: black;
+    color: #1a1d59;
+	background: #fff9d6;
     font-size: 16px;
-    margin: 0px auto 0px auto;
-    width: 600px;
+}
+
+nav, article, header
+{
+	display: block;
+}
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+*:link, *:visited, *:active {
+	text-decoration: none;
+	color: #731024;
 }
 
 div#header {
