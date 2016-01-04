@@ -8,20 +8,26 @@ let gulp = require('gulp')
 
 const DEST = '_site';
 
-gulp.task('webpack'
-, () =>
-	gulp.src([ 'js/home.js'
+gulp.task('webpack', () =>
+	gulp.src([ 'scripts/splash.ts'
 	         ])
-		.pipe(named())
-		.pipe(webpack(
-			{ devtool: 'source-map'
-			, module: {
-				loaders: [
-					{ exclude: /node_modules/
-					, loader: 'babel'
-					}]
-			}}))
-        .pipe(gulp.dest(DEST))
+	.pipe(named())
+	.pipe(webpack(
+		{ devtool: 'source-map'
+		, module:
+			{ loaders:
+				[ { exclude: /node_modules/
+				  , loader: 'ts-loader'
+				  , test: /\.ts$/
+				  }
+				, { exclude: /node_modules/
+				  , loader: 'babel'
+				  , test: /\.js$/
+				  }
+				]
+			}
+		}))
+	.pipe(gulp.dest(DEST))
 );
 
 gulp.task( 'less', () => {
@@ -31,7 +37,7 @@ return gulp.src(['less/**/*'])
            .pipe(gulp.dest(DEST));
 });
 
-gulp.task( 'default', ['webpack', 'less']);
+gulp.task('default', ['webpack', 'less']);
 
 gulp.task('watch-less', () => gulp.watch('less/**/*', ['less']));
 gulp.task('watch-js', () => gulp.watch('js/**/*', ['webpack']));

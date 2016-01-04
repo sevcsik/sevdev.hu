@@ -12,81 +12,83 @@
 	font-family: Hack;
 	color: #1a1d59;
 	font-size: 16px;
+
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 0px;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.content {
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	.logo {
+		font-size: 0;
+		position: relative;
+		width: 175px;
+		height: 45px;
+		margin: 0 auto;
+	}
+
+	.logo svg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	.logo .the-s, #splash .logo .the-d {
+		width: 25px;
+		height: 35px;
+		fill: #731024;
+	}
+
+	.logo .the-s {
+		top: 10px;
+	}
+
+	.logo .the-d {
+		left: 90px;
+	}
+
+	.logo .the-rest {
+		height: 45px;
+		width: 175px;
+		fill: #1a1d59;
+	}
+
+	.info .name {
+		margin-bottom: 10px;
+	}
+
+	.info .title, #splash .email {
+		font-size: 12px;
+	}
+
+	.menu {
+		word-spacing: 5px;
+	}
+
+	.menu a::before {
+		content: '';
+		display: inline-block;
+		height: 5px;
+		width: 5px;
+		background-color: #741024;
+		vertical-align: middle;
+		margin-right: 15px;
+	}
+
+	.menu a:first-child::before {
+		display: none;
+	}
+
+	.profiles {
+		font-size: 12px;
+	}
 }
 
-#splash::before {
-	content: '';
-	display: inline-block;
-	width: 0px;
-	height: 100%;
-	vertical-align: middle;
-}
 
-#splash .content {
-	vertical-align: middle;
-	display: inline-block;
-}
-
-#splash .logo {
-	font-size: 0;
-	position: relative;
-	width: 175px;
-	height: 45px;
-	margin: 0 auto;
-}
-
-#splash .logo svg {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-}
-
-#splash .logo .the-s, #splash .logo .the-d {
-	width: 25px;
-	height: 35px;
-	fill: #731024;
-}
-
-#splash .logo .the-s {
-	top: 10px;
-}
-
-#splash .logo .the-d {
-	left: 90px;
-}
-
-#splash .logo .the-rest {
-	height: 45px;
-	width: 175px;
-	fill: #1a1d59;
-}
-
-#splash .info .name {
-	margin-bottom: 10px;
-}
-
-#splash .info .title, #splash .email {
-	font-size: 12px;
-}
-
-#splash .menu {
-	word-spacing: 5px;
-}
-
-#splash .menu a::before {
-	content: '';
-	display: inline-block;
-	height: 5px;
-	width: 5px;
-	background-color: #741024;
-	vertical-align: middle;
-	margin-right: 15px;
-}
-
-#splash .menu a:first-child::before {
-	display: none;
-}
-
-#splash .profiles {
-	font-size: 12px;
-}
