@@ -40,5 +40,5 @@ return gulp.src(['less/**/*'])
 gulp.task('default', ['webpack', 'less']);
 
 gulp.task('watch-less', () => gulp.watch('less/**/*', ['less']));
-gulp.task('watch-js', () => gulp.watch('js/**/*', ['webpack']));
+gulp.task('watch-js', () => gulp.watch('scripts/**/*', ['webpack']));
 gulp.task('watch', ['watch-less', 'watch-js']);
