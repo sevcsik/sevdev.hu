@@ -11,57 +11,54 @@
   <link rel="apple-touch-icon" href="$base$/images/favicon.svg">
 </head>
 <body>
-  <div id="background_header"></div>
-  <div id="background_menu"></div>
-  <div id="background_menu_line"></div>
-  <div id="background_content"></div>
-  <div id="align">
-    <header>
-		<a href="$base$">
-			<img id="logo" src="$base$/images/logo.svg">
-		</a>
-		<div class="feeds">
-			<a href="$base$/rss.xml">
-				<i class="fa fa-fw fa-rss"></i>
-				RSS
+  <sd-main> 
+	<div id="align">
+		<header>
+			<a href="$base$">
+				<img id="logo" src="$base$/images/logo.svg">
 			</a>
-			<a href="$base$/atom.xml">
-				<i class="fa fa-fw fa-rss"></i>
-				Atom
-			</a>
-			<a href="http://github.com/sevcsik/sevdev-hakyll">
-				<i class="fa fa-fw fa-github"></i>
-				Github
-			</a>
-			<a href="http://twitter.com/sevcsik">
-				<i class="fa fa-fw fa-twitter"></i>
-				Twitter
-			</a>
-			<a href="http://hu.linkedin.com/in/sevcsik">
-				<i class="fa fa-fw fa-linkedin"></i>
-				LinkedIn
-			</a>
-			<a href="http://medium.com/@sevcsik">
-				<i class="fa fa-fw fa-medium"></i>
-				Medium
-			</a>
-    </header>
-    <nav id="menu" class="focus-$index$">
-      <div id="menu_slider">
-        <a href="$base$">latest</a>
+			<div class="feeds">
+				<a href="$base$/rss.xml">
+					<i class="fa fa-fw fa-rss"></i>
+					RSS
+				</a>
+				<a href="$base$/atom.xml">
+					<i class="fa fa-fw fa-rss"></i>
+					Atom
+				</a>
+				<a href="http://github.com/sevcsik/sevdev-hakyll">
+					<i class="fa fa-fw fa-github"></i>
+					Github
+				</a>
+				<a href="http://twitter.com/sevcsik">
+					<i class="fa fa-fw fa-twitter"></i>
+					Twitter
+				</a>
+				<a href="http://hu.linkedin.com/in/sevcsik">
+					<i class="fa fa-fw fa-linkedin"></i>
+					LinkedIn
+				</a>
+				<a href="http://medium.com/@sevcsik">
+					<i class="fa fa-fw fa-medium"></i>
+					Medium
+				</a>
+			</header>
 
-		<!--<a href="$base$/contact.html">contact</a>-->
-        <a href="$base$/resume">résumé</a>
-        <a href="$base$/archive.html">archive</a>
-      </div>
-      <div id="menu_selector"></div>
-    </nav>
-    <div id="content" class="focus-$index$">
-      <div class="page">
-		<h1 $if(titleLength)$ class="$titleLength$" $endif$>$title$</h1>
-        $body$
-      </div>
-    </div>
-  </div>
+			<nav id="menu" class="focus-$index$">
+				<div id="menu_slider">
+ 					<a href="$base$">latest</a>
+					<!--<a href="$base$/contact.html">contact</a>-->
+					<a href="$base$/resume">résumé</a>
+					<a href="$base$/archive.html">archive</a>
+				</div>
+				<div id="menu_selector"></div>
+			</nav>
+			<div id="content" class="focus-$index$">
+				<div class="page">
+					<h1 $if(titleLength)$ class="$titleLength$" $endif$>$title$</h1>
+						$body$
+				</div>
+			</div>
+		</div>
 </body>
 </html>
