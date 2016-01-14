@@ -8,12 +8,12 @@ let gulp = require('gulp')
 
 const DEST = '_site';
 
-gulp.task('webpack', () =>
+gulp.task('webpack', (done) =>
 	gulp.src([ 'scripts/splash.ts'
 	         ])
 	.pipe(named())
 	.pipe(webpack(
-		{ devtool: 'source-map'
+		{ devtool: 'hidden-source-map'
 		, module:
 			{ loaders:
 				[ { exclude: /node_modules/
@@ -27,14 +27,16 @@ gulp.task('webpack', () =>
 				]
 			}
 		}))
+	.on('error', done)
 	.pipe(gulp.dest(DEST))
 );
 
-gulp.task( 'less', () => {
-return gulp.src(['less/**/*'])
-           .pipe(named())
-           .pipe(less())
-           .pipe(gulp.dest(DEST));
+gulp.task( 'less', (done) => {
+	return gulp.src(['less/**/*'])
+               .pipe(named())
+               .pipe(less())
+		       .on('error', done)
+               .pipe(gulp.dest(DEST));
 });
 
 gulp.task('default', ['webpack', 'less']);
