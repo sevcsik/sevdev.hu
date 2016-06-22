@@ -3,7 +3,7 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 import           Data.Maybe (fromMaybe)
-import qualified Data.Map as M
+import qualified Data.HashMap.Strict as HMS
 
 postCtx :: Context String
 postCtx = ( mconcat 
@@ -11,12 +11,12 @@ postCtx = ( mconcat
     , constField "base" ".."
     , constField "index" "0"
     , field "title" $ \item -> do
-        metadata <- getMetadata (itemIdentifier item)
-        return $ fromMaybe "" $ M.lookup "title" metadata
+        title <- getMetadataField (itemIdentifier item) "title"
+        return $ fromMaybe "" title
     , field "titleLength" $ \item -> do
-        metadata <- getMetadata (itemIdentifier item)
-        return $ 
-            if (< 16) . length . (fromMaybe "") $ M.lookup "title" metadata
+        title <- getMetadataField (itemIdentifier item) "title"
+        return $
+            if (< 16) . length . (fromMaybe "") $ title
             then "short"
             else "long"
     , defaultContext

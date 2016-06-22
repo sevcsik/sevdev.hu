@@ -1,12 +1,8 @@
-flags: {}
+flags:
+  hakyll:
+    previewserver: false
 packages:
 - '.'
 extra-deps:
-    - hakyll-4.7.2.0
-    - clay-0.10.1
-    - purescript-0.7.1.0
-    - bower-json-0.7.0.0
-    - boxes-0.1.4
-    - pattern-arrows-0.0.2
-    - containers-0.5.6.2
-resolver: nightly-2015-07-15
+- hakyll-4.8.3.2
+resolver: nightly-2016-06-21
