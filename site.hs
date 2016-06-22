@@ -2,6 +2,7 @@
 
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Hakyll.Core.Configuration
 import           Data.Maybe (fromMaybe)
 import qualified Data.HashMap.Strict as HMS
 
@@ -34,8 +35,12 @@ feedConfig = FeedConfiguration
     , feedRoot        = "https://sevdev.hu/~sevcsik"
     }
 
+config = defaultConfiguration { deployCommand = " cp -r resume/dist _site/resume \
+                                                \ && ipfs add -r _site" 
+                              }
+
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
