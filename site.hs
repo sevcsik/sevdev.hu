@@ -7,7 +7,7 @@ import           Data.Maybe (fromMaybe)
 import qualified Data.HashMap.Strict as HMS
 
 postCtx :: Context String
-postCtx = ( mconcat 
+postCtx = ( mconcat
     [ dateField "date" "%B %e, %Y"
     , constField "base" ".."
     , constField "index" "0"
@@ -36,7 +36,7 @@ feedConfig = FeedConfiguration
     }
 
 config = defaultConfiguration { deployCommand = " cp -r resume/dist _site/resume \
-                                                \ && ipfs add -r _site" 
+                                                \ && ipfs add -r _site"
                               }
 
 main :: IO ()
@@ -54,7 +54,7 @@ main = hakyllWith config $ do
 
         compile $ do
             compiled <- pandocCompiler
-            teaser <- loadAndApplyTemplate "templates/inline-post.html" postCtx $ 
+            teaser <- loadAndApplyTemplate "templates/inline-post.html" postCtx $
                 getTeaser compiled
             full <- loadAndApplyTemplate "templates/post.html" postCtx compiled
 
@@ -67,7 +67,7 @@ main = hakyllWith config $ do
     create ["index.html"] $ do
         route idRoute
         compile $ do
-            tpl <- loadBody "templates/post-item.html" 
+            tpl <- loadBody "templates/post-item.html"
             let ctx =
                     constField "title" "Latest posts"         `mappend`
                     constField "base" "."                     `mappend`
@@ -112,8 +112,8 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
-    match "templates/*" $ compile templateCompiler   
-    
+    match "templates/*" $ compile templateCompiler
+
     create ["rss.xml"] $ do
         route idRoute
         compile $ do
@@ -129,4 +129,4 @@ main = hakyllWith config $ do
             posts <- fmap (take 20) . recentFirst =<<
                 loadAllSnapshots "posts/*" "plain"
             renderAtom feedConfig ctx posts
-      
+
