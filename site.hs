@@ -35,7 +35,8 @@ feedConfig = FeedConfiguration
     , feedRoot        = "https://sevdev.hu/~sevcsik"
     }
 
-config = defaultConfiguration { deployCommand = " cp -r resume/dist _site/resume \
+config = defaultConfiguration { deployCommand = " mkdir -p _site/resume \
+                                                \ && cp -r resume/dist/* _site/resume \
                                                 \ && ipfs add -r _site"
                               }
 
