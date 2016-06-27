@@ -104,7 +104,7 @@ node's gateway pretty easily, for example using the [IPFS station] extension.
 That provides a seamless way to use  IPFS how it's meant to be used: using the
 peer-to-peer network, without any knowledge of the original host.
 
-[IPFS]: /ipns/ipfs.io
+[IPFS]: https://ipfs.io
 [go-ipfs]: https://github.com/ipfs/go-ipfs
 [ipns-pub]: https://github.com/whyrusleeping/ipns-pub
 [#ipfs]: irc://chat.freenode.net/ipfs
