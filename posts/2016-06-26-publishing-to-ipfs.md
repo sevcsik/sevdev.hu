@@ -3,14 +3,10 @@ title: Publishing to IPFS
 -------------------------
 
 If you visited this site more than once in the past year, you might notice
-that it started redirecting to a weird path, like this:
-
-```
-/ipns/sevdev.hu
-```
+that it started redirecting to a weird path, like this: `/ipns/sevdev.hu`.
 
 The reason being that the site is now hosted on [IPFS], and the path
-you are seeing is the [IPFS] path of the site, served by the HTTP gateway
+you are seeing is the IPFS path of the site, served by the HTTP gateway
 of [go-ipfs]. So, what is this, and why it is a big deal?
 
 <!-- TEASER -->
@@ -18,45 +14,49 @@ of [go-ipfs]. So, what is this, and why it is a big deal?
 # The Interplanetary Filesystem
 
 IPFS is a distributed, peer-to-peer, content-addressed filesystem. It's like
-the lovechild of BitTorrent and Git. With IPFS, you can publish files on the
-P2P network. These files can be pulled by other nodes on the network 
-automagically, aware only the hash of the content, but unaware of the
-adress of the host. The network is trustless, because of the objects are
-identified by their hash, it's impossible to change their content without
-changing their address.
+the lovechild of BitTorrent and Git. It makes it possible to make a file or
+directory available on the network, where other nodes can access it
+knowing only the hash of the content, but unaware of the location of the host.
+This allows a transparent, infrastructure-agnostic and inherently redundant
+data storage. The network is trustless, as it's impossible to change their
+content without changing their address.
 
-In this setup, the VPS behind sevdev.hu is just an [IPFS] node, with a HTTP
+In this setup, the VPS behind sevdev.hu is just an IPFS node, with a HTTP
 gateway to serve traditional web browsers. If the page is accessed natively
-through an [IPFS] client, it could just be served by any other [IPFS] node
+through an IPFS client, it could just be served by any other IPFS node
 which holds a copy.
 
 # Publishing files
 
 To get started, just install [go-ipfs] and initialise your node with
-`ipfs init`. This will generate a private key, and a corresponding peerID,
-which will identify your node over the P2P network. After that, the daemon
-can be started by `ipfs daemon`.
+`ipfs init`. This will generate a private key, and a corresponding peer ID,
+which will identify your node over the peer-to-peer network. After that, the
+daemon can be started by `ipfs daemon`.
 
 Making a file available on IPFS is the easiest part. After installing
 [go-ipfs] , just use `ipfs add <path>`. That doesn't transmit anything
 to the network - it just calculates and stores the hash of the given
-file. Similar to Git, trees can be also stored. A tree's hash is composed
+file. If any node looks for this specific hash in the future, your node
+will serve it.
+
+It's also possible to store trees, just like in Git. A tree's hash is composed
 of the hash and path of the leaves, which allows us to publish a whole
 directory recursively, with `ipfs add -r <path>`.
 
 # Addressing
 
-The `ipfs add` command outputs a very nice looking, base-58 hash, starting
+The `ipfs add` command outputs a friendly looking, base-58 hash, starting
 with `Qm` for some reason. This file can be referenced by any node on the
-network, using the path `/ipfs/<the hash>`. As long as your node is up and
-has a healthy connection, any node can access this object. There is a public
-gateway at the [IPFS] home page to try: `http://ipfs.io/ipfs/<hash>`.
+network, using the path `/ipfs/<hash>`. As long as your node is up and
+has a healthy connection, any node can access your content using this
+path. There is a public gateway at the IPFS home page to try: 
+`http://ipfs.io/ipfs/<hash>`.
 
-Since these address are immutable, it's impossible to deliver updates to users.
-That's why IPFS has a separate, mutable namespace at `/ipns`, where mutable
-names are storex. The concept is similar to Git branches - which are mutable
-pointers, as oppesed to commits, which are content-addressable, immutable
-objects.
+Since paths are immutable, it's impossible to deliver updates to users.
+That's why IPFS has a separate namespace at `/ipns/`, where mutable
+names can be resolved. The concept is similar to Git branches -- they are
+mutable pointers, as oppesed to commits, which are content-addressable,
+immutable objects.
 
 This namespace can use a number of name services to resolve IPFS resources.
 
@@ -73,10 +73,10 @@ referenced later with the path `/ipns/<peer id>`. There is also a commandline
 tool, [ipns-pub] to conveniently publish to multiple names, without changing
 the node configuration.
 
-This is a self-contained, decentralised way of publishing content, but the
-downside is that because of the need for republishing, practically it will
-need an always-on server with the private key on file. According to folks
-on [#ipfs], this will change in the future.
+This is a self-contained, decentralised way of publishing content, but
+practically it needs an always-on server with the private key on file, 
+to be able to keep the name alive. According to folks on [#ipfs], this will
+change in the future.
 
 # DNS
 
@@ -95,7 +95,7 @@ path, instead of an unfriendly peer ID.
 # Using IPFS on today's web
 
 Obviously, there is no native support for the IPFS protocol in web browsers.
-This site, as well as the [IPFS] webite provides a HTTP gateway, that
+This site, as well as the IPFS webite provides a HTTP gateway, that
 conveniently maps IPFS paths to the document root, so they can be loaded in
 a HTTP client without any modification.
 
