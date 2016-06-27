@@ -46,7 +46,11 @@ directory recursively, with `ipfs add -r <path>`.
 
 # Addressing
 
-
+The `ipfs add` command outputs a very nice looking, base-58 hash, starting
+with `Qm` for some reason. This file can be referenced by any node on the
+network, using the path `/ipfs/<the hash>`. As long as your node is up and
+has a healthy connection, any node can access this object. You can try it
+by trying to load it on the ipfs.io HTTP gateway.
 
 
 
