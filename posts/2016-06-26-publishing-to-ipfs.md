@@ -6,7 +6,7 @@ If you visited this site more than once in the past year, you might notice
 that it started redirecting to a weird path, like this:
 
 ```
-/ipns/QmPCSxsoWPRcKJpMagcSpE4kjWBZPxjHB8GZR7ZatMGfqN/index.html?
+/ipns/sevdev.hu
 ```
 
 The reason being that the site is now hosted on [IPFS], and the path
@@ -92,10 +92,21 @@ ipfs.io. 11 IN TXT "dnslink=/ipfs/QmTzQ1JRkWErjk39mryYw2WVaphAZNAREyMchXzYQ7c15n
 Because of that TXT record, the website can be accessed by the `/ipns/ipfs.io`
 path, instead of an unfriendly peer ID.
 
+# Using IPFS on today's web
 
+Obviously, there is no native support for the IPFS protocol in web browsers.
+This site, as well as the [IPFS] webite provides a HTTP gateway, that
+conveniently maps IPFS paths to the document root, so they can be loaded in
+a HTTP client without any modification.
+
+This practice makes it possible to redirect every HTTP gateway to the local
+node's gateway pretty easily, for example using the [IPFS station] extension.
+That provides a seamless way to use  IPFS how it's meant to be used: using the
+peer-to-peer network, without any knowledge of the original host.
 
 [IPFS]: /ipns/ipfs.io
 [go-ipfs]: https://github.com/ipfs/go-ipfs
 [ipns-pub]: https://github.com/whyrusleeping/ipns-pub
 [#ipfs]: irc://chat.freenode.net/ipfs
+[IPFS Station]: https://chrome.google.com/webstore/detail/ipfs-station/kckhgoigikkadogfdiojcblegfhdnjei
 
