@@ -14,12 +14,6 @@ postCtx = ( mconcat
     , field "title" $ \item -> do
         title <- getMetadataField (itemIdentifier item) "title"
         return $ fromMaybe "" title
-    , field "titleLength" $ \item -> do
-        title <- getMetadataField (itemIdentifier item) "title"
-        return $
-            if (< 16) . length . (fromMaybe "") $ title
-            then "short"
-            else "long"
     , defaultContext
     ] )
 

@@ -1,8 +1,7 @@
 /* theme: https://kuler.adobe.com/sevdevhu-theme-based-on-AlMo3000-color-theme-3699265/ */
 
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-@import url(//fonts.googleapis.com/css?family=Orbitron:500,700|Audiowide);
-@import url(//fonts.googleapis.com/css?family=Josefin+Sans:400,600);
+@import url(//fonts.googleapis.com/css?family=Orbitron:500|Audiowide);
 
 nav, article, header {
   display: block;
@@ -26,7 +25,7 @@ body {
 
 #background_menu_line {
   position: absolute;
-  top: 150px;
+  top: 85px;
   width: 100%;
   height: 5px;
   background: #cccccc;
@@ -36,73 +35,54 @@ body {
   width: 960px;
   margin: auto;
   position: relative;
-  padding: 150px 20px 20px 20px;
+  padding: 20px;
 }
 
 header {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	height: 120px;
+	position: relative;
+	height: 70px;
+	margin-bottom: 30px;
 }
 
 #logo {
-	height: 60px;
 	position: absolute;
-	left: 20px;
-	top: 43px;
+	height: 45px;
+	bottom: 0;
+	z-index: 1;
 }
 
-header .feeds {
+#feeds {
 	position: absolute;
-	right: 45px;
-	top: 0px;
+	left: 0;
+	bottom: -25px;
 }
 
-header .feeds a {
+#feeds a {
 	display: inline-block;
 	vertical-align: bottom;
 	font-size: 10px;
-	opacity: 0.2;
-	-webkit-transition: opacity 0.3s;
-	-moz-transition: opacity 0.3s;
-	-ms-transition: opacity 0.3s;
-	transition: opacity 0.3s;
 }
 
-header .feeds:hover a {
-	opacity: 0.6;
-}
-
-header .feeds a:hover {
-	opacity: 1;
-}
-
-header .feeds i {
+#feeds i {
 	font-size: 14px;
 }
 
-#menu
-{
+#menu {
   position: absolute;
-  left: 0px; /* js manipulated */
-  top: 120px;
+  right: 0;
+  bottom: 0;
   height: 35px;
+  text-align: right;
   width: 100%;
-  z-index: 2;
-	}
+}
 
 #menu a
 {
   display: inline-block;
   line-height: 30px;
-  height: 30px;
-  width: 220px;
+  width: 150px;
   font-family: Orbitron, Arial;
   font-size: 17px;
-  padding: 0px 20px;
-  margin: 0;
   z-index: 1;
   position: relative;
   text-align: center;
@@ -115,54 +95,20 @@ header .feeds i {
   transition: color 0.3s linear;
 }
 
-#menu_slider
-{
-  position: relative;
-  font-size: 0;
-  -webkit-transition: left 0.3s;
-  -moz-transition: left 0.3s;
-  -ms-transition: left 0.3s;
-  -o-transition: left 0.3s;
-  transition: left 0.3s;
-}
-
-#menu.focus-0 > #menu_slider {
-	text-align: center;
-}
-
-#menu.focus-1 > #menu_slider { left: 390px }
-#menu.focus-2 > #menu_slider { left: 170px }
-#menu.focus-3 > #menu_slider { left: -50px }
-#menu.focus-4 > #menu_slider { left: -150px }
-#menu.focus-5 > #menu_slider { left: -330px }
-
-#menu.focus-1 > #menu_slider :nth-child(1),
-#menu.focus-2 > #menu_slider :nth-child(2),
-#menu.focus-3 > #menu_slider :nth-child(3),
-#menu.focus-4 > #menu_slider :nth-child(4),
-#menu.focus-5 > #menu_slider :nth-child(5) {
+#menu.focus-1 > :nth-child(1),
+#menu.focus-2 > :nth-child(2),
+#menu.focus-3 > :nth-child(3),
+#menu.focus-4 > :nth-child(4),
+#menu.focus-5 > :nth-child(5) {
 	color: #7F2626;
-}
-
-#menu_selector {
-  position: absolute;
-  bottom: 0px;
-  left: 390px;
-  right: 390px;
-  height: 5px;
-  background-color: #7F2626;
-  z-index: 0;
-}
-
-#menu.focus-0 #menu_selector {
-	display: none;
+	border-bottom: 5px solid #7F2626
 }
 
 #content {
   position: relative;
   white-space: nowrap;
   -webkit-transition: height 0.3s linear;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: sans-serif;
   line-height: 150%;
   font-size: 20px;
 }
@@ -199,7 +145,6 @@ header .feeds i {
   width: 100%;
   min-height: 400px;
   vertical-align: top;
-  padding-top: 40px;
 
   -webkit-transition-property: margin-left, opacity, height;
   -webkit-transition-duration: 0.3s;
@@ -265,7 +210,7 @@ sd-post[listitem] {
 
 sd-post > .info {
 	font-size: 80%;
-	opacity: 0.8;
+	font-weight: normal;
 }
 
 sd-post > .info > * {
@@ -283,7 +228,7 @@ sd-post article {
 sd-post h1 {
 	font-size: 28px;
 	color: #7F2626;
-	font-weight: bold;
+	font-weight: normal;
 	margin: 0; 
 }
 

@@ -11,16 +11,20 @@
   <link rel="apple-touch-icon" href="$base$/images/favicon.svg">
 </head>
 <body>
-  <div id="background_header"></div>
-  <div id="background_menu"></div>
   <div id="background_menu_line"></div>
-  <div id="background_content"></div>
   <div id="align">
     <header>
 		<a href="$base$">
 			<img id="logo" src="$base$/images/logo.svg">
 		</a>
-		<div class="feeds">
+		<nav id="menu" class="focus-$index$">
+			<a href="$base$">latest</a>
+
+			<!--<a href="$base$/contact.html">contact</a>-->
+			<a href="$base$/resume">résumé</a>
+			<a href="$base$/archive.html">archive</a>
+		</nav>
+		<div id="feeds">
 			<a href="$base$/rss.xml">
 				<i class="fa fa-fw fa-rss"></i>
 				RSS
@@ -45,20 +49,10 @@
 				<i class="fa fa-fw fa-medium"></i>
 				Medium
 			</a>
+		</div>
     </header>
-    <nav id="menu" class="focus-$index$">
-      <div id="menu_slider">
-        <a href="$base$">latest</a>
-
-		<!--<a href="$base$/contact.html">contact</a>-->
-        <a href="$base$/resume">résumé</a>
-        <a href="$base$/archive.html">archive</a>
-      </div>
-      <div id="menu_selector"></div>
-    </nav>
     <div id="content" class="focus-$index$">
       <div class="page">
-		<h1 $if(titleLength)$ class="$titleLength$" $endif$>$title$</h1>
         $body$
       </div>
     </div>
