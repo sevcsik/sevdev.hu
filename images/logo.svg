@@ -70,17 +70,17 @@
     <path
        inkscape:connector-curvature="0"
        d="m 4.995609,977.38981 -4.995609,0 0,-4.99557 4.995609,0 0,4.99557 z"
-       style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3020" />
     <path
        inkscape:connector-curvature="0"
        d="m 14.988204,977.38981 -4.996986,0 0,-4.99557 4.996986,0 0,4.99557 z"
-       style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3022" />
     <path
        inkscape:connector-curvature="0"
        d="m 24.984927,977.38981 -4.998361,0 0,-4.99557 4.998361,0 0,4.99557 z"
-       style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3024" />
     <path
        inkscape:connector-curvature="0"
@@ -90,11 +90,11 @@
     <g
        id="g3028"
        transform="matrix(1.37658,0,0,-1.3765811,25.125614,942.41187)"
-       style="fill:#50647d;fill-opacity:1">
+       style="fill:#26627f;fill-opacity:1">
       <path
          inkscape:connector-curvature="0"
          d="m 0,0 0,-3.631 -14.52,0 0,-3.63 14.52,0 0,-10.89 -18.15,0 0,3.631 14.52,0 0,3.629 -14.52,0 L -18.15,0 0,0 z"
-         style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path3030" />
     </g>
     <path
@@ -105,7 +105,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 95.081758,962.40302 14.992342,0 0,-14.99096 -14.992342,0 0,14.99096 z m 19.989322,-29.97918 0,34.97474 -24.983555,0 0,-24.98494 19.986575,0 0,-9.9898 4.99698,0 z"
-       style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3034" />
     <path
        inkscape:connector-curvature="0"
@@ -185,7 +185,7 @@
     <path
        inkscape:connector-curvature="0"
        d="m 90.087525,937.41807 14.989575,0 0,-4.99423 -14.989575,0 0,4.99423 z"
-       style="fill:#50647d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#26627f;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path3066" />
   </g>
 </svg>
