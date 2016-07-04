@@ -24,7 +24,7 @@ body {
 
 #background_menu_line {
 	position: absolute;
-	top: 85px;
+	top: 60px;
 	width: 100%;
 	height: 5px;
 	background: #cccccc;
@@ -38,8 +38,7 @@ body {
 
 header {
 	position: relative;
-	height: 70px;
-	margin-bottom: 30px;
+	height: 45px;
 }
 
 #logo {
@@ -50,65 +49,20 @@ header {
 }
 
 #feeds {
-	position: absolute;
-	left: 0;
-	bottom: -25px;
-}
-
-#feeds a {
-	display: inline-block;
-	vertical-align: bottom;
-	font-size: 10px;
-}
-
-#feeds i {
-	font-size: 14px;
+	display: none;
 }
 
 #menu {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	height: 35px;
-	text-align: right;
-	width: 100%;
-}
-
-#menu a
-{
-	display: inline-block;
-	line-height: 30px;
-	width: 150px;
-	font-family: Orbitron, Arial;
-	font-size: 17px;
-	z-index: 1;
-	position: relative;
-	text-align: center;
-	box-sizing: border-box;
-
-	-webkit-transition: color 0.3s linear;
-	-moz-transition: color 0.3s linear;
-	-ms-transition: color 0.3s linear;
-	-o-transition: color 0.3s linear;
-	transition: color 0.3s linear;
-}
-
-#menu.focus-1 > :nth-child(1),
-#menu.focus-2 > :nth-child(2),
-#menu.focus-3 > :nth-child(3),
-#menu.focus-4 > :nth-child(4),
-#menu.focus-5 > :nth-child(5) {
-	color: #7F2626;
-	border-bottom: 5px solid #7F2626
+	display: none;
 }
 
 #content {
 	position: relative;
-	white-space: nowrap;
 	-webkit-transition: height 0.3s linear;
 	font-family: sans-serif;
 	line-height: 150%;
-	font-size: 20px;
+	font-size: 14px;
+	color: #333;
 }
 
 #overlay_left,
@@ -199,7 +153,7 @@ header {
 
 sd-post {
 	display: block;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 sd-post[listitem] {
@@ -207,7 +161,7 @@ sd-post[listitem] {
 }
 
 sd-post > .info {
-	font-size: 80%;
+	font-size: 70%;
 	font-weight: normal;
 }
 
@@ -216,15 +170,13 @@ sd-post > .info > * {
 }
 
 sd-post article {
-	padding: 30px 20px 10px 20px;
+	margin: 10px 0px;
 	text-align: left;
-	color: #333333;
-	white-space: normal;
 	position: relative;
 }
 
 sd-post h1 {
-	font-size: 28px;
+	font-size: 150%;
 	color: #7F2626;
 	font-weight: normal;
 	margin: 0; 
@@ -258,12 +210,7 @@ sd-post a[href^=http]:after
 	font-family: FontAwesome;
 }
 
-sd-post .ellipsis {
-	margin-left: 20px;
-}
-
 sd-post code {
-	font-size: 16px;
 	font-family: Consolas, Monaco, monospace;
 	border-radius: 2px;
 	border: 1px solid #ccc;

@@ -1,1 +1,72 @@
+#menu {
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 35px;
+	text-align: right;
+	width: 100%;
+}
+
+#menu a
+{
+	display: inline-block;
+	line-height: 30px;
+	width: 150px;
+	font-family: Orbitron, Arial;
+	font-size: 17px;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	box-sizing: border-box;
+
+	-webkit-transition: color 0.3s linear;
+	-moz-transition: color 0.3s linear;
+	-ms-transition: color 0.3s linear;
+	-o-transition: color 0.3s linear;
+	transition: color 0.3s linear;
+}
+
+#menu.focus-1 > :nth-child(1),
+#menu.focus-2 > :nth-child(2),
+#menu.focus-3 > :nth-child(3),
+#menu.focus-4 > :nth-child(4),
+#menu.focus-5 > :nth-child(5) {
+	color: #7F2626;
+	border-bottom: 5px solid #7F2626
+}
+
+header {
+	height: 70px;
+	margin-bottom: 30px;
+}
+
+#background_menu_line {
+	top: 85px;
+}
+
+#feeds {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: -25px;
+}
+
+#feeds a {
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 10px;
+}
+
+#feeds i {
+	font-size: 14px;
+}
+
+#content {
+	font-size: 18px;
+}
+
+sd-post {
+	margin-bottom: 40px;
+}
 
