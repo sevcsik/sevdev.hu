@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>sevdev: $title$</title>
-  <meta charset="utf-8">
-  <meta name="theme-color" content="#7f2626">
-  <link rel="alternate" type="application/rss+xml" title="sevdev RSS" href="$base$/rss.xml">
-  <link rel="alternate" type="application/atom+xml" title="sevdev Atom" href="$base$/atom.xml">
-  <link rel="stylesheet" href="$base$/css/base.css">
-  <link rel="stylesheet" href="$base$/css/syntax.css">
-  <link rel="icon" sizes="16x16" href="$base$/images/favicon_16px.png">
-  <link rel="apple-touch-icon" href="$base$/images/favicon.svg">
+	<title>sevdev: $title$</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#7f2626">
+	<link rel="alternate" type="application/rss+xml" title="sevdev RSS" href="$base$/rss.xml">
+	<link rel="alternate" type="application/atom+xml" title="sevdev Atom" href="$base$/atom.xml">
+	<link rel="stylesheet" href="$base$/css/base.css">
+	<link media="only screen and (min-width:992px)"
+	      rel="stylesheet" href="$base$/css/base_sm.css">
+	<link media="only screen and (min-width:960px)"
+	      rel="stylesheet" href="$base$/css/base_md.css">
+	<link rel="stylesheet" href="$base$/css/syntax.css">
+	<link rel="icon" sizes="16x16" href="$base$/images/favicon_16px.png">
+	<link rel="apple-touch-icon" href="$base$/images/favicon.svg">
 </head>
 <body>
-  <div id="background_menu_line"></div>
-  <div id="align">
-    <header>
+	<div id="background_menu_line"></div>
+	<div id="align">
+		<header>
 		<a href="$base$">
 			<img id="logo" src="$base$/images/logo.svg">
 		</a>
@@ -51,12 +55,12 @@
 				Medium
 			</a>
 		</div>
-    </header>
-    <div id="content" class="focus-$index$">
-      <div class="page">
-        $body$
-      </div>
-    </div>
-  </div>
+		</header>
+		<div id="content" class="focus-$index$">
+			<div class="page">
+				$body$
+			</div>
+		</div>
+	</div>
 </body>
 </html>

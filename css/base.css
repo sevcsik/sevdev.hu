@@ -4,38 +4,36 @@
 @import url(//fonts.googleapis.com/css?family=Orbitron:500|Audiowide);
 
 nav, article, header {
-  display: block;
+	display: block;
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
 *:link {
-  text-decoration: none;
-  border: 0px;
+	text-decoration: none;
+	border: 0px;
 }
 
 body {
-  background: #E5E5E5;
-  min-width: 960px;
-  overflow-x: hidden;
+	background: #E5E5E5;
+	overflow-x: hidden;
 }
 
 #background_menu_line {
-  position: absolute;
-  top: 85px;
-  width: 100%;
-  height: 5px;
-  background: #cccccc;
+	position: absolute;
+	top: 85px;
+	width: 100%;
+	height: 5px;
+	background: #cccccc;
 }
 
 #align {
-  width: 960px;
-  margin: auto;
-  position: relative;
-  padding: 20px;
+	margin: auto;
+	position: relative;
+	padding: 20px;
 }
 
 header {
@@ -68,31 +66,31 @@ header {
 }
 
 #menu {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 35px;
-  text-align: right;
-  width: 100%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 35px;
+	text-align: right;
+	width: 100%;
 }
 
 #menu a
 {
-  display: inline-block;
-  line-height: 30px;
-  width: 150px;
-  font-family: Orbitron, Arial;
-  font-size: 17px;
-  z-index: 1;
-  position: relative;
-  text-align: center;
-  box-sizing: border-box;
+	display: inline-block;
+	line-height: 30px;
+	width: 150px;
+	font-family: Orbitron, Arial;
+	font-size: 17px;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	box-sizing: border-box;
 
-  -webkit-transition: color 0.3s linear;
-  -moz-transition: color 0.3s linear;
-  -ms-transition: color 0.3s linear;
-  -o-transition: color 0.3s linear;
-  transition: color 0.3s linear;
+	-webkit-transition: color 0.3s linear;
+	-moz-transition: color 0.3s linear;
+	-ms-transition: color 0.3s linear;
+	-o-transition: color 0.3s linear;
+	transition: color 0.3s linear;
 }
 
 #menu.focus-1 > :nth-child(1),
@@ -105,32 +103,32 @@ header {
 }
 
 #content {
-  position: relative;
-  white-space: nowrap;
-  -webkit-transition: height 0.3s linear;
-  font-family: sans-serif;
-  line-height: 150%;
-  font-size: 20px;
+	position: relative;
+	white-space: nowrap;
+	-webkit-transition: height 0.3s linear;
+	font-family: sans-serif;
+	line-height: 150%;
+	font-size: 20px;
 }
 
 #overlay_left,
 #overlay_right
 {
-  position: absolute;
-  z-index: 1;
-  width: 10000px;
-  height: 100%;
-  top: 2px;
+	position: absolute;
+	z-index: 1;
+	width: 10000px;
+	height: 100%;
+	top: 2px;
 }
 
 #overlay_left
 {
-  right: 100%;
+	right: 100%;
 }
 
 #overlay_right
 {
-  left: 100%;
+	left: 100%;
 }
 
 #content.focus-1 .dummy { margin-left: 0% }
@@ -141,36 +139,36 @@ header {
 
 #content > .page
 {
-  display: inline-block;
-  width: 100%;
-  min-height: 400px;
-  vertical-align: top;
+	display: inline-block;
+	width: 100%;
+	min-height: 400px;
+	vertical-align: top;
 
-  -webkit-transition-property: margin-left, opacity, height;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-property: margin-left, opacity, height;
-  -moz-transition-duration: 0.3s;
-  -ms-transition-property: margin-left, opacity, height;
-  -ms-transition-duration: 0.3s;
-  -o-transition-property: margin-left, opacity, height;
-  -ot-transition-duration: 0.3s;
-  transition-property: margin-left, opacity, height;
-  transition-duration: 0.3s;
+	-webkit-transition-property: margin-left, opacity, height;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-property: margin-left, opacity, height;
+	-moz-transition-duration: 0.3s;
+	-ms-transition-property: margin-left, opacity, height;
+	-ms-transition-duration: 0.3s;
+	-o-transition-property: margin-left, opacity, height;
+	-ot-transition-duration: 0.3s;
+	transition-property: margin-left, opacity, height;
+	transition-duration: 0.3s;
 }
 
 #content > .dummy
 {
-  width: 0;
+	width: 0;
 }
 
 #content > .page.inactive
 {
-  opacity: 0.2;
+	opacity: 0.2;
 }
 
 #content > .page.inactive > h1
 {
-  opacity: 0;
+	opacity: 0;
 }
 
 #content > .page > h1
@@ -218,11 +216,11 @@ sd-post > .info > * {
 }
 
 sd-post article {
-  padding: 30px 20px 10px 20px;
-  text-align: left;
-  color: #333333;
-  white-space: normal;
-  position: relative;
+	padding: 30px 20px 10px 20px;
+	text-align: left;
+	color: #333333;
+	white-space: normal;
+	position: relative;
 }
 
 sd-post h1 {
@@ -233,14 +231,14 @@ sd-post h1 {
 }
 
 sd-post p {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 a:link,
 a:visited
 {
-  color: #26627f;
-  -webkit-transition: color 0.3s;
+	color: #26627f;
+	-webkit-transition: color 0.3s;
 }
 
 a:hover,
@@ -251,13 +249,13 @@ a:active
 
 sd-post a[href^=http]:after
 {
-  content: "\f08e";
-  margin-left: 5px;
-  text-shadow: none;
-  font-size: 60%;
-  vertical-align: baseline;
-  font-weight: normal;
-  font-family: FontAwesome;
+	content: "\f08e";
+	margin-left: 5px;
+	text-shadow: none;
+	font-size: 60%;
+	vertical-align: baseline;
+	font-weight: normal;
+	font-family: FontAwesome;
 }
 
 sd-post .ellipsis {
