@@ -17,44 +17,50 @@
 </head>
 <body>
 	<div id="background_menu_line"></div>
+	<nav id="hamburger-menu" class="closed focus-$index$">
+		<input type="checkbox" class="button">
+		<ul>
+			<li><a href="$base$">latest</a></li>
+			<li><a href="$base$/resume">résumé</a></li>
+			<li><a href="$base$/archive.html">archive</a></li>
+		</ul>
+	</nav>
 	<div id="align">
 		<header>
-		<a href="$base$">
-			<img id="logo" src="$base$/images/logo.svg">
-		</a>
-		<nav id="menu" class="focus-$index$">
-			<a href="$base$">latest</a>
-
-			<!--<a href="$base$/contact.html">contact</a>-->
-			<a href="$base$/resume">résumé</a>
-			<a href="$base$/archive.html">archive</a>
-		</nav>
-		<div id="feeds">
-			<a href="$base$/rss.xml">
-				<i class="fa fa-fw fa-rss"></i>
-				RSS
+			<a href="$base$">
+				<img id="logo" src="$base$/images/logo.svg">
 			</a>
-			<a href="$base$/atom.xml">
-				<i class="fa fa-fw fa-rss"></i>
-				Atom
-			</a>
-			<a href="http://github.com/sevcsik/sevdev-hakyll">
-				<i class="fa fa-fw fa-github"></i>
-				Github
-			</a>
-			<a href="http://twitter.com/sevcsik">
-				<i class="fa fa-fw fa-twitter"></i>
-				Twitter
-			</a>
-			<a href="http://hu.linkedin.com/in/sevcsik">
-				<i class="fa fa-fw fa-linkedin"></i>
-				LinkedIn
-			</a>
-			<a href="http://medium.com/@sevcsik">
-				<i class="fa fa-fw fa-medium"></i>
-				Medium
-			</a>
-		</div>
+			<nav id="menu" class="focus-$index$">
+				<a href="$base$">latest</a>
+				<a href="$base$/resume">résumé</a>
+				<a href="$base$/archive.html">archive</a>
+			</nav>
+			<div id="feeds">
+				<a href="$base$/rss.xml">
+					<i class="fa fa-fw fa-rss"></i>
+					RSS
+				</a>
+				<a href="$base$/atom.xml">
+					<i class="fa fa-fw fa-rss"></i>
+					Atom
+				</a>
+				<a href="http://github.com/sevcsik/sevdev-hakyll">
+					<i class="fa fa-fw fa-github"></i>
+					Github
+				</a>
+				<a href="http://twitter.com/sevcsik">
+					<i class="fa fa-fw fa-twitter"></i>
+					Twitter
+				</a>
+				<a href="http://hu.linkedin.com/in/sevcsik">
+					<i class="fa fa-fw fa-linkedin"></i>
+					LinkedIn
+				</a>
+				<a href="http://medium.com/@sevcsik">
+					<i class="fa fa-fw fa-medium"></i>
+					Medium
+				</a>
+			</div>
 		</header>
 		<div id="content" class="focus-$index$">
 			<div class="page">

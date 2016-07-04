@@ -29,6 +29,69 @@ body {
 	background: #cccccc;
 }
 
+#hamburger-menu {
+	position: fixed;
+	width: 100%;
+	left: calc(100% - 55px);
+	white-space: nowrap;
+	z-index: 2;
+}
+
+#hamburger-menu input,
+#hamburger-menu ul {
+	display: inline-block;
+	vertical-align: top;
+	background: white;
+	padding: 20px;
+	font-family: Orbitron;
+	line-height: 1.2em;
+}
+
+#hamburger-menu input {
+	position: relative;
+	width: 35px;
+	height: 35px;
+	margin-top: 20px;
+	margin-right: 20px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	transition: margin-left 0.2s;
+}
+
+#hamburger-menu input:checked {
+	margin-left: calc(75px - 100%);
+}
+
+#hamburger-menu ul {
+	margin-left 0;
+	list-style-type: none;
+	width: calc(100% - 75px);
+	box-sizing: border-box;
+}
+
+#hamburger-menu li {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 5px solid #7F2626;
+}
+
+#hamburger-menu li:first-child {
+	margin-top: 0;
+}
+
+#hamburger-menu li:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+#hamburger-menu.focus-1 > ul > :nth-child(1) > a,
+#hamburger-menu.focus-2 > ul > :nth-child(2) > a,
+#hamburger-menu.focus-3 > ul > :nth-child(3) > a,
+#hamburger-menu.focus-4 > ul > :nth-child(4) > a,
+#hamburger-menu.focus-5 > ul > :nth-child(5) > a {
+	color: #7F2626;
+}
+
 #align {
 	margin: auto;
 	position: relative;
@@ -84,12 +147,6 @@ header {
 {
 	left: 100%;
 }
-
-#content.focus-1 .dummy { margin-left: 0% }
-#content.focus-2 .dummy { margin-left: -100% }
-#content.focus-3 .dummy { margin-left: -200% }
-#content.focus-4 .dummy { margin-left: -300% }
-#content.focus-5 .dummy { margin-left: -400% }
 
 #content li {
 	list-style-type: square;
