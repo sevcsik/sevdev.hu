@@ -1,3 +1,7 @@
+#hamburger-menu {
+	display: none;
+}
+
 #menu {
 	display: block;
 	position: absolute;
