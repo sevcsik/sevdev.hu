@@ -32,6 +32,7 @@ body {
 #hamburger-menu {
 	position: fixed;
 	width: 100%;
+	height: 100%;
 	left: calc(100% - 55px);
 	white-space: nowrap;
 	z-index: 2;
@@ -62,10 +63,26 @@ body {
 	margin-left: calc(75px - 100%);
 }
 
+#hamburger-menu .overlay {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: none;
+	z-index: -1;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#hamburger-menu input:checked ~ .overlay {
+	display: block;
+}
+
 #hamburger-menu ul {
 	margin-left 0;
 	list-style-type: none;
 	width: calc(100% - 75px);
+	height: 100%;
 	box-sizing: border-box;
 }
 
