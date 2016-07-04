@@ -38,7 +38,7 @@
 
 header {
 	height: 70px;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 }
 
 #background_menu_line {
@@ -64,6 +64,10 @@ header {
 
 #content {
 	font-size: 18px;
+}
+
+#content li {
+	margin-left: 30px;
 }
 
 sd-post {
