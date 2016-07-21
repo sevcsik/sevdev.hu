@@ -29,10 +29,7 @@ feedConfig = FeedConfiguration
     , feedRoot        = "https://sevdev.hu/~sevcsik"
     }
 
-config = defaultConfiguration { deployCommand = " mkdir -p _site/resume \
-                                                \ && cp -r resume/dist/* _site/resume \
-                                                \ && ipfs add -r _site"
-                              }
+config = defaultConfiguration
 
 main :: IO ()
 main = hakyllWith config $ do
