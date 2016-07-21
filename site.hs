@@ -26,7 +26,7 @@ feedConfig = FeedConfiguration
     , feedDescription = ""
     , feedAuthorName  = "Andras Sevcsik"
     , feedAuthorEmail = "sevcsik@sevdev.hu"
-    , feedRoot        = "https://sevdev.hu/~sevcsik"
+    , feedRoot        = "https://sevdev.hu/"
     }
 
 config = defaultConfiguration
