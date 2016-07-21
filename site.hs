@@ -31,6 +31,11 @@ feedConfig = FeedConfiguration
 
 config = defaultConfiguration
 
+ampifyFilename :: Bool -> String -> String
+ampifyFilename False = id
+ampifyFilename True fn = takeWhile isNotDot ++ ".amp" ++ dropWhile isNotDot
+                         where isNotDot = (/= '.')
+
 main :: IO ()
 main = hakyllWith config $ do
     match "images/*" $ do
@@ -41,20 +46,20 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "posts/*" $ do
-        route $ setExtension "html"
-
+    let m isAmp = match "posts/*" $ do
+        route $ setExtension $ if isAmp then "amp.html" else "html"
         compile $ do
+            let af = ampifyFilename isAmp
+            let ctx = postCtx
             compiled <- pandocCompiler
-            teaser <- loadAndApplyTemplate "templates/inline-post.html" postCtx $
-                getTeaser compiled
-            full <- loadAndApplyTemplate "templates/post.html" postCtx compiled
+            teaser <- loadAndApplyTemplate (af "templates/inline-post.html") ctx $ getTeaser compiled
+            full <- loadAndApplyTemplate (af "templates/post.html") ctx compiled
 
             saveSnapshot "full" full
             saveSnapshot "teaser" teaser
             saveSnapshot "plain" compiled
-            loadAndApplyTemplate "templates/default.html" postCtx full
-                >>= relativizeUrls
+            loadAndApplyTemplate (af "templates/default.html") ctx full >>= relativizeUrls
+    in mapM_ m [True, False]
 
     create ["index.html"] $ do
         route idRoute
