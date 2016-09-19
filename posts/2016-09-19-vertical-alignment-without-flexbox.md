@@ -29,5 +29,12 @@ in HTML: It is designed around flowing text, not UI, so it feels unnatural
 to do things with it which should be obvious in a UI development framework. 
 
 That doesn't mean we cannot use `vertical-align`, we just need to be a bit creative. 
+Let's say we have a `.container` element, and a `.box`. As we already know, it should be applied 
+to `.box`, not `.container`, but it still doesn't seem to be doing anything. The reason is that
+it is the only child, there's nobody to align to. We need to add another one, as a reference. 
+We can use a `::before`. This will be a ruler which we can measure our `.box`against. 
+
+We use an `inline-block` display for both of our elements, so
+we can align them nicely. 
 
 [1]: http://caniuse.com/#feat=flexbox
