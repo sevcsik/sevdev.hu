@@ -20,5 +20,10 @@ the content. And it's counter-intuitive as well: negative margins just don't mak
 
 We do have something though that looks like exactly what we need. It's called
 `vertical-align: middle`. Probably the first disappointment in every web developers life. 
+It seems to be the obvious solution - but it just doesn't work. 
+
+The reason is that `vertical-align` is for text formatting. It doesn't set the alignment 
+of the children of the element, like `text-align`, but it sets the alignment 
+of the children themselves, relative to each other. 
 
 [1]: http://caniuse.com/#feat=flexbox
