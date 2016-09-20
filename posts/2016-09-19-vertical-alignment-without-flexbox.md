@@ -8,7 +8,7 @@ ridiculously complicated thing in CSS. There are urban legends about people,
 who once aligned a box vertically in the middle of the screen, but they have
 never been seen again. 
 
-<!--  TEASER -->
+<!-- TEASER -->
 
 Usually, the solution is the following: use absolute positioning, `top: 50%`,
 and use negative margins to set the size of the element. If you can `calc()`, 
