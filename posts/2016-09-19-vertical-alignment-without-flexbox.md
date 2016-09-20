@@ -1,6 +1,6 @@
-=============================================
+---------------------------------------------
 title: CSS vertical alignment without flexbox 
-=============================================
+---------------------------------------------
 
 If you're unlucky enough to have to support [non-flexbox-capable browsers][1],
 I'm pretty sure you had nightmares about vertical alignment. It's the most
