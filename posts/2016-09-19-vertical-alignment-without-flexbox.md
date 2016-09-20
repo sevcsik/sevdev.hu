@@ -19,7 +19,7 @@ This is not always the case: you might want to have a dialog which grows with
 the content. And it's counter-intuitive as well: negative margins just don't make sense. 
 
 We do have something though that looks like exactly what we need. It's called
-`vertical-align: middle`. Probably the first disappointment in every web developers life. 
+`vertical-align: middle`, the first disappointment in every web developers life. 
 It seems to be the obvious solution - but it just doesn't work. 
 
 The reason is that `vertical-align` is for text formatting. It doesn't set the alignment 
@@ -35,6 +35,10 @@ it is the only child, there's nobody to align to. We need to add another one, as
 We can use a `::before`. This will be a ruler which we can measure our `.box`against. 
 
 We use an `inline-block` display for both of our elements, so
-we can align them nicely. 
+we can align them nicely. Our 'ruler' should have a 100% height, so it's like we were aligning 
+to the container's. Width should be 0, to hide it. And voilà, our box is vertically aligned! 
+
+Check out the working example (borders added for demonstration):
+
 
 [1]: http://caniuse.com/#feat=flexbox
