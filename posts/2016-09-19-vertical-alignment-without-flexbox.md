@@ -40,5 +40,6 @@ to the container's. Width should be 0, to hide it. And voilà, our box is vertic
 
 Check out the working example (borders added for demonstration):
 
+<iframe width="100%" height="300" src="//jsfiddle.net/hx00epqu/18/embedded/html,css,result/?accentColor=%237f262&menuColor=%23E5E5E&bodyColor=%23fff&fontColor=%23333" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 [1]: http://caniuse.com/#feat=flexbox
