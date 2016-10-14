@@ -3,12 +3,12 @@ title: Testing ngModule in Angular 2
 ---
 
 Angular has always put an emphasis on automated testing. Angular 2 continues
-this tradition - the question testing is ubiqitous, both the core design and
+this tradition - the question testing is ubiquitous, both the core design and
 the documentation, which is great.
 
-Unfortunately, Angular 2 being a much more delicate and complex environment
-than Angular 1, so the testing tools. This is a case study of testing a simple 
-component with two-way binding, which highlights the pitfalls to avoid.
+Unfortunately, Angular 2 is a much more delicate and complex environment
+than Angular 1, so are the testing tools. This is a case study of testing a simple 
+component with two-way binding, highlighting the pitfalls to avoid.
 
 <!-- TEASER -->
 
@@ -47,22 +47,22 @@ expect(fixture.debugElement
       ).toEqual('TEST');
 ```
 
-`Expected '' to equal 'TEST'` :(
+Result: `Expected '' to equal 'TEST'` :(
 
 Of course it fails! For a good reason: Angular doesn't (cannot) update the
 bindings instantly. This is familiar from Angular 1 - we needed to call the
 dreaded `$scope.apply()` to trigger the digest loop, or wait for it to happen
 by itself.
-`
+
 # The change detector
 
 The Angular2 equivalent of this is [`ChangeDetectorRef#detectChanges()`][2].
-For now, it's enough for us that it's exposed on `CompnentFixture`, and calling
+Int the test environment, it's exposed on `CompnentFixture`, and calling
 it will detect the changes and update the binings. Nice.
 
-```
+```javascript
 it( 'should put the uppercased version of the input field\'s input into'
-+ 'the code element', () => {
+  + 'the code element', () => {
 
 // put our test string to the input element
 fixture.debugElement.query(By.css('input')).nativeElement.value = 'test';
@@ -77,19 +77,19 @@ expect(fixture.debugElement
 });
 ```
 
-`Expected 'LOWERCASE' to equal 'TEST'.` :(
+Result: `Expected 'LOWERCASE' to equal 'TEST'.` :(
 
 A bit better, right? Now at least we have the initial value going through.
-The reason being, is that TestBed doesn't run the change detector at all,
+The reason is that TestBed doesn't run the change detector at all,
 unless asked to - so by default, not even the initial bindings are executed.
 (This behaviour can be changed with [`Fixture#autoDetectChanges`][3].)
 
 # Triggering NgModel
 
-What we want to see, is the new value, what we put in the input field, not the
-initial one. The issue is, that even though	we updated the value property,
-that itself doesn't trigger NgModel's binding. It listens to the `input` event -
-which is triggers only on actual user input.
+What we want to see, is the new value we put in the input field, not the
+initial one. The issue is that even though	we updated the value property,
+that doesn't trigger NgModel's binding by itself. It listens to the `input` event,
+which is dispatched only on actual user input.
 
 All we need to do is to dispatch an [`InputEvent`][4] (did you know that's a
 thing?) on element and we're good to go. Right?
@@ -113,11 +113,11 @@ it( 'should put the uppercased version of the input field\'s input into'
 });
 ```
 
-`Expected 'LOWERCASE' to equal 'TEST'.` :(
+Result: `Expected 'LOWERCASE' to equal 'TEST'.` :(
 
 # NgModel is asynchronous
 
-Now this is where it gets funky. After some searching, I found a [commit to
+Now this is where it gets funky. After a bit searching, I found a [commit to
 the changelog][5] which explains it: NgModel updates became asynchronous, so
 fixture.detectChanges() won't be reflected instantly. We have to use the
 `Fixture#whenStable` method, which gives us a promise to the stabilised state.
@@ -144,18 +144,20 @@ it( 'should put the uppercased version of the input field\'s input into'
 
 ```
 
-*It works!* Note that I moved the `fixture.detectChanges()` call to the top,
-because altough we don't need it anymore *after* we make changes, we still need
+Result (wait for it): *It works!*
+
+Note that I moved the `fixture.detectChanges()` call to the top,
+because alhtough we don't need it anymore *after* we make changes, we still need
 an initial call to build the initial state of our component.
 
-Now we are using promises. It's not hard to imagine that this
-would look like a mess on more complicated test scenarios, if we had to chain
+Now we are using promises. You don't need to have a wild imagination to see
+this would look like a mess on more complicated test scenarios, if we had to chain
 every exception after a promise.
 
 # Making it readable again
 
 Thankfully, Angular 2 provides a utility, called [`fakeAsync`][6], which magically
-allows us to turn our code sync again, with the use of the `tick` function.
+allows us to turn our code sync again, with the help of the `tick` function.
 We just have to put the `it` callback into a `fakeAsync` wrapper, and we can
 "suspend" our flow until the async operations are ready.
 
