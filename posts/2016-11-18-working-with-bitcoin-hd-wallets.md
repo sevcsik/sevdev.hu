@@ -31,7 +31,7 @@ to spend the money from a given address.
 The private key is a long sequence, not meant for human consumption. To store a private
 key it can be encoded to a QR code and printed. Alternatively it can be deterministically
 generated from a random seed, which can be represented by a set of natural language words
-(mnemonics). These words are picked from a [2048-word list][5], defined by the [BIP39][5] standard.
+(mnemonics). These words are picked from a [2048-word list][6], defined by the [BIP39][5] standard.
 BIP39 seeds can optionally be salted with a passphrase. Both QR codes and mnemonics are relatively
 resilient, making them suitable for long-term storage.
 
@@ -76,4 +76,4 @@ and the use of extended public keys.
 [3]: http://bip32.org/
 [4]: https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 [5]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
-
+[6]: https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md
