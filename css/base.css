@@ -237,6 +237,16 @@ sd-post p {
 	margin-bottom: 8px;
 }
 
+sd-post .figure {
+	text-align: center;
+	font-size: 85%;
+	font-style: italic;
+}
+
+sd-post .figure img {
+	max-width: 100%;
+}
+
 a:link,
 a:visited
 {

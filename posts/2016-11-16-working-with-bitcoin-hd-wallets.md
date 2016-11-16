@@ -1,6 +1,6 @@
-======================================================
-title: Working with Bitcoin HD wallets: Key derivation
-======================================================
+--------------------------------------------------------
+title: "Working with Bitcoin HD wallets: Key derivation"
+--------------------------------------------------------
 
 If you are using Bitcoin regularly, you may have noticed that modern wallets let you
 create multiple accounts with the same recovery seed and they create a new address
@@ -60,7 +60,7 @@ hierarchical deterministic wallet (HD wallet for short). The list of indexes
 used in each step gives us the *derivation path* of a key, like `m/1/2/3`, where `m`
 denotes the initial key (AKA the *master key*).
 
-![Key derivation paths illustrated in the BIP39 standard](https://github.com/bitcoin/bips/raw/master/bip-0032/derivation.png)
+![Key derivation paths illustrated in the BIP32 standard](https://github.com/bitcoin/bips/raw/master/bip-0032/derivation.png)
 
 Since there are endless possible variations of these paths, the [BIP44][4] standard
 specifies a limited set to use in HD wallets. If a user imports their private key to a

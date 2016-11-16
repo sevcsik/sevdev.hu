@@ -11,4 +11,5 @@ _site/index.html: $(site)
 
 clean:
 	rm -rf _site
+	rm -rf _cache
 	rm -rf .stack-work
