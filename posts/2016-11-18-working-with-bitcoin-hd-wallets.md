@@ -60,6 +60,8 @@ hierarchical deterministic wallet (HD wallet for short). The list of indexes
 used in each step gives us the *derivation path* of a key, like `m/1/2/3`, where `m`
 denotes the initial key (AKA the *master key*).
 
+![Key derivation paths illustrated in the BIP39 standard](https://github.com/bitcoin/bips/raw/master/bip-0032/derivation.png)
+
 Since there are endless possible variations of these paths, the [BIP44][4] standard
 specifies a limited set to use in HD wallets. If a user imports their private key to a
 wallet application that implements BIP44 (such as Mycelium), it will automatically
@@ -74,3 +76,4 @@ and the use of extended public keys.
 [3]: http://bip32.org/
 [4]: https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 [5]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+
