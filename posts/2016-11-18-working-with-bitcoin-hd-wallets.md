@@ -55,7 +55,7 @@ As I mentioned already, a child key is also an extended key, so we can use it to
 more child keys. That gives us a tree of keys - hence the name
 hierarchical deterministic wallet (HD wallet for short). The list of indexes
 used in each step gives us the *derivation path* of a key, like `m/1/2/3`, where `m`
-denotes the initial key (AKA the *master key*). The [BIP32 Genarator][3]
+denotes the initial key (AKA the *master key*).
 
 Since there are endless variations of these, the [BIP44][4] standard
 specifies a set of derivation paths for HD wallets. If a user imports their private key to a
