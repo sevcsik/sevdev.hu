@@ -2,6 +2,8 @@
 title: "Working with Bitcoin HD wallets II: Deriving public keys"
 -----------------------------------------------------------------
 
+*This post is the continuation of [my previous about key derivation][1]*.
+
 So we already know how to create an huge amount of wallets using a recovery seed or an extended private key, the well-known derivation method described in [BIP32][2] and the derivation paths of [BIP44][3].
 
 However, generating keys based on the private key puts limits on the possible use cases. The private key allows to spend the coins sent to its own or its descendants' addresses, so it must be kept secret. That implies that you have to fully trust the code and the runtime you use to generate your addresses.
@@ -42,6 +44,7 @@ The first three levels are hardened, meaning it's not possible to derive the dif
 
 In the next article, we'll see a real-life scenario of how key derivation and extended public keys can make a life easier for an enterprise running on Bitcoin.
 
+[1]: /posts/2016-11-16-working-with-bitcoin-hd-wallets.html
 [2]: https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki 
 [3]: https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 [4]: https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#user-content-Security
