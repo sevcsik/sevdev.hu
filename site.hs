@@ -44,6 +44,10 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "fonts/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "posts/*" $ do
         route $ setExtension "html"
 

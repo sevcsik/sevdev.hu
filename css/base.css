@@ -1,7 +1,15 @@
 /* theme: https://kuler.adobe.com/sevdevhu-theme-based-on-AlMo3000-color-theme-3699265/ */
 
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-@import url(//fonts.googleapis.com/css?family=Orbitron:500|Audiowide);
+@font-face {
+	src: url(../fonts/RobotoSlab-Light.ttf);
+	font-family: RobotoSlab;
+	font-weight: normal;
+}
+
+@font-face {
+	src: url(../fonts/FontAwesome-fontello.ttf);
+	font-family: FontAwesome;
+}
 
 nav, article, header {
 	display: block;
@@ -17,8 +25,15 @@ nav, article, header {
 	border: 0px;
 }
 
+.fa {
+	font-weight: normal;
+	font-family: FontAwesome;
+}
+
 body {
 	background: #E5E5E5;
+	font-family: RobotoSlab;
+	font-size: 14px;
 }
 
 #background_menu_line {
@@ -47,7 +62,6 @@ body {
 	display: inline-block;
 	vertical-align: top;
 	padding: 20px;
-	font-family: Orbitron;
 	line-height: 1.2em;
 }
 
@@ -129,6 +143,15 @@ body {
 	margin-top: 0;
 }
 
+#hamburger-menu li:last-child {
+	border-bottom: none;
+}
+
+#hamburger-menu .social a {
+	font-size: 20px;
+	margin-right: 10px;
+}
+
 #hamburger-menu.focus-1 > ul > :nth-child(1) > a,
 #hamburger-menu.focus-2 > ul > :nth-child(2) > a,
 #hamburger-menu.focus-3 > ul > :nth-child(3) > a,
@@ -167,30 +190,8 @@ header {
 #content {
 	position: relative;
 	-webkit-transition: height 0.3s linear;
-	font-family: sans-serif;
 	line-height: 150%;
-	font-size: 14px;
 	color: #333;
-}
-
-#overlay_left,
-#overlay_right
-{
-	position: absolute;
-	z-index: 1;
-	width: 10000px;
-	height: 100%;
-	top: 2px;
-}
-
-#overlay_left
-{
-	right: 100%;
-}
-
-#overlay_right
-{
-	left: 100%;
 }
 
 #content li {
@@ -229,7 +230,7 @@ sd-post:first-child h1:first-child {
 sd-post h1 {
 	font-size: 150%;
 	color: #7F2626;
-	font-weight: normal;
+	font-weight: bold;
 	margin: 0; 
 }
 
@@ -251,6 +252,7 @@ a:link,
 a:visited
 {
 	color: #26627f;
+	font-weight: bold;
 	-webkit-transition: color 0.3s;
 }
 
@@ -272,11 +274,7 @@ sd-post a[href^=http]:after
 }
 
 sd-post code {
-	font-family: Consolas, Monaco, monospace;
-	border-radius: 2px;
-	border: 1px solid #ccc;
-	background: white;
-	padding: 0 3px;
+	font-family: monospace;
 	white-space: nowrap;
 }
 
@@ -284,7 +282,6 @@ sd-post code.sourceCode {
 	background: transparent;
 	border: none;
 	padding: 0;
-	font-size: 12px;
 	white-space: pre-wrap;
 }
 
@@ -293,7 +290,6 @@ sd-post pre.sourceCode {
 	padding-left: 9px;
 	margin-left: 2px;
 	margin-bottom: 8px;
-	line-height: 15px;
 }
 
 sd-post h1 {

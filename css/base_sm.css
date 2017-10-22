@@ -12,12 +12,11 @@
 	width: 100%;
 }
 
-#menu a
+#menu > *
 {
 	display: inline-block;
 	line-height: 30px;
 	width: 150px;
-	font-family: Orbitron, Arial;
 	font-size: 17px;
 	z-index: 1;
 	position: relative;
@@ -42,7 +41,7 @@
 
 header {
 	height: 70px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 #background_menu_line {
@@ -53,17 +52,8 @@ header {
 	display: block;
 	position: absolute;
 	left: 0;
-	bottom: -25px;
-}
-
-#feeds a {
-	display: inline-block;
-	vertical-align: bottom;
-	font-size: 10px;
-}
-
-#feeds i {
-	font-size: 14px;
+	bottom: -35px;
+	font-size: 24px;
 }
 
 #content {
