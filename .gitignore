@@ -19,3 +19,4 @@ _cache
 .stack-work
 **/bower_components
 **/node_modules
+**/result
