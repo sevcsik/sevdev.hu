@@ -1,10 +1,26 @@
-{-# LANGUAGE OverloadedStrings #-}
+#ifdef USE_REAL_DATA_DIR
+-- If we're built from Cabal, we use the cabal-provided data dir
+import           Paths_sevdev_site_generator (getDataDir)
+#else
+-- We use the dummy data dir file if we're not in Cabal
+import           Paths (getDataDir)
+#endif
 
 import           Data.Monoid (mappend)
+import           System.FilePath
 import           Hakyll
 import           Hakyll.Core.Configuration
+import           Hakyll.Core.Identifier.Pattern (Pattern, fromGlob)
+import           Hakyll.Core.Identifier (Identifier, fromFilePath)
 import           Data.Maybe (fromMaybe)
 import qualified Data.HashMap.Strict as HMS
+import           GHC.Exts (IsString, fromString)
+
+prependDataDir :: IO (String -> Pattern, String -> Identifier)
+prependDataDir = getDataDir
+    >>= \basepath -> return $ ( \path -> fromGlob $ basepath </> path 
+                              , \path -> fromFilePath $ basepath </> path
+                              )
 
 postCtx :: Context String
 postCtx = ( mconcat
@@ -23,50 +39,47 @@ getTeaser = fmap (unlines . takeWhile (/= "<!-- TEASER -->") . lines)
 
 feedConfig = FeedConfiguration
     { feedTitle       = "sevdev blog"
-    , feedDescription = ""
+    , feedDescription = "Crypto & web development"
     , feedAuthorName  = "Andras Sevcsik"
     , feedAuthorEmail = "sevcsik@sevdev.hu"
-    , feedRoot        = "https://sevdev.hu/~sevcsik"
+    , feedRoot        = "https://sevdev.hu"
     }
 
-config = defaultConfiguration { deployCommand = " mkdir -p _site/resume \
-                                                \ && cp -r resume/dist/* _site/resume \
-                                                \ && ipfs add -r _site"
-                              }
-
 main :: IO ()
-main = hakyllWith config $ do
-    match "images/*" $ do
+main = prependDataDir >>= \(absGlob, absIdentifier) -> hakyllWith defaultConfiguration $ do
+    match (absGlob "images/*") $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
+    match (absGlob "css/*") $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "fonts/*" $ do
+    match (absGlob "fonts/*") $ do
         route   idRoute
         compile copyFileCompiler
+
+    match (absGlob "templates/*") $ compile templateCompiler
 
     match "posts/*" $ do
         route $ setExtension "html"
 
         compile $ do
             compiled <- pandocCompiler
-            teaser <- loadAndApplyTemplate "templates/inline-post.html" postCtx $
+            teaser <- loadAndApplyTemplate (absIdentifier "templates/inline-post.html") postCtx $
                 getTeaser compiled
-            full <- loadAndApplyTemplate "templates/post.html" postCtx compiled
+            full <- loadAndApplyTemplate (absIdentifier "templates/post.html") postCtx compiled
 
             saveSnapshot "full" full
             saveSnapshot "teaser" teaser
             saveSnapshot "plain" compiled
-            loadAndApplyTemplate "templates/default.html" postCtx full
+            loadAndApplyTemplate (absIdentifier "templates/default.html") postCtx full
                 >>= relativizeUrls
 
     create ["index.html"] $ do
         route idRoute
         compile $ do
-            tpl <- loadBody "templates/post-item.html"
+            tpl <- loadBody (absIdentifier "templates/post-item.html")
             let ctx =
                     constField "title" "Latest posts"         `mappend`
                     constField "base" "."                     `mappend`
@@ -77,7 +90,7 @@ main = hakyllWith config $ do
                 >>= fmap (take 3) . recentFirst
                 >>= applyTemplateList tpl postCtx
                 >>= makeItem
-                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= loadAndApplyTemplate (absIdentifier "templates/default.html") ctx
                 >>= relativizeUrls
 
     create ["archive.html"] $ do
@@ -92,8 +105,8 @@ main = hakyllWith config $ do
                     defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/post-list.html" ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= loadAndApplyTemplate (absIdentifier "templates/post-list.html") ctx
+                >>= loadAndApplyTemplate (absIdentifier "templates/default.html") ctx
                 >>= relativizeUrls
 
 
@@ -108,10 +121,8 @@ main = hakyllWith config $ do
 
             pandocCompiler
                 >>= applyAsTemplate ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= loadAndApplyTemplate (absIdentifier "templates/default.html") ctx
                 >>= relativizeUrls
-
-    match "templates/*" $ compile templateCompiler
 
     create ["rss.xml"] $ do
         route idRoute

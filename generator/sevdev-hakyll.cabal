@@ -15,9 +15,16 @@ data-files:         templates/*.html
 
 
 executable site
-  main-is:          site.hs
+  main-is:          Main.hs
   build-depends:    base < 5
                   , hakyll
                   , unordered-containers
+                  , filepath
+                  , directory
+  other-modules:    Paths_sevdev_site_generator
+  autogen-modules:  Paths_sevdev_site_generator
   ghc-options:      -threaded
   default-language: Haskell2010
+  extensions:       CPP
+                  , OverloadedStrings
+  cpp-options:      -DUSE_REAL_DATA_DIR

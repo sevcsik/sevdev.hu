@@ -6,6 +6,7 @@ stdenv.mkDerivation rec {
 	phases = "buildPhase";
 	buildInputs = [ generator ];
 	buildPhase = ''
+		site clean
 		site build
 		mkdir $out
 		cp -r site/* $out
