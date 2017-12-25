@@ -6,10 +6,12 @@ stdenv.mkDerivation rec {
 	phases = "buildPhase";
 	buildInputs = [ generator ];
 	buildPhase = ''
-		site clean
-		site build
+		export LC_ALL="en_GB.UTF-8"
+		for dir in `find $src -type d -maxdepth 1`; do cp -rv $dir .; done
+		chmod -R u+w *
+		site rebuild
 		mkdir $out
-		cp -r site/* $out
+		cp -r _site/* $out
 	'';
 
 	meta = {
