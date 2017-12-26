@@ -1,13 +1,15 @@
 { stdenv, generator ? import ../generator/release.nix }:
-stdenv.mkDerivation rec {
+let ignores = [ "_cache" "_site" "result" ];
+in stdenv.mkDerivation rec {
 	name = "sevdev-blog";
 	version = "1";
-	src = ./.;
-	phases = "buildPhase";
+	src = builtins.filterSource 
+		(path: _: builtins.foldl' (acc: el: acc && builtins.baseNameOf path != el) true ignores)
+		./.;
+	phases = "unpackPhase buildPhase";
 	buildInputs = [ generator ];
 	buildPhase = ''
 		export LC_ALL="en_GB.UTF-8"
-		for dir in `find $src -type d -maxdepth 1`; do cp -rv $dir .; done
 		chmod -R u+w *
 		site rebuild
 		mkdir $out
