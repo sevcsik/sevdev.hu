@@ -2,23 +2,23 @@
 title: "Discovering Nix: Provisioning a static webserver with NixOps"
 --------------------------------------------------------------------
 
-Few weeks ago I decided to pick up Nix. It's a lovely concept: describe environments / Linux systems in an immutable, functional manner.
+A few weeks ago I decided to pick up Nix. It's a lovely concept: describe environments / Linux systems in an immutable, functional manner.
 
 Although Docker solves the immutability part, the idea never really resonated with me: I find it a crude, but effective solution to put an immutable layer over our mutable OSs.
 
 Nix has a different approach: instead of making our existing systems immutable, it tackles the problem on a lower level: it aims to make the environment immutable from the ground up with a package manager called Nix, and an OS built around it called NixOS. And with NixOps, you can manage instances running NixOS.
 
-In this article I will put together a simple static webserver running Nginx using NixOps.
+In this article, I will put together a simple static webserver running Nginx using NixOps.
 
 <!-- TEASER -->
 
-For this tutorial, I will manually install NixOS on a cheap [RamNode][ramnode-product-page] VPS. I prefer the manual installation, because I can learn a lot more of how the system works. I also scrimp.
+For this tutorial, I will manually install NixOS on a cheap [RamNode][ramnode-product-page] VPS. I prefer the manual installation because I can learn a lot more about how the system works. I also scrimp.
 
-In real life, it's easier to go with a cloud provider supported by NixOps, such as Azure, EC2, GCE, or a local VirtualBox installation. NixOps can provision machines to these providers automatically, so if you feel like it just skip the next section and look at the [relevant section of the manual][nixos-manual-ec2] instead.
+In real life, it's easier to go with a cloud provider supported by NixOps, such as Azure, EC2, GCE, or a local VirtualBox installation. NixOps can provision machines to these providers automatically, so if you feel like it, just skip the next section and look at the [relevant section of the manual][nixos-manual-ec2] instead.
 
 # Installing a minimal NixOS
 
-Installing NixOS is pretty straightforward. First, we need to prepare your filesystems as usual with fdisk and mkfs. I prefer to add labels to my filesystems as I can have a more meaningful (and less volatile) `fstab`, but it's not necessary.
+Installing NixOS is pretty straightforward. First, we need to prepare your filesystems as usual with `fdisk` and `mkfs`. I prefer to add labels to my filesystems as I can have a more meaningful (and less volatile) `fstab`, but it's not necessary.
 
 After we prepared the disk, we mount the root partition and enable swap if needed.
 
@@ -32,13 +32,13 @@ After we prepared the disk, we mount the root partition and enable swap if neede
 # swapon /dev/disk/by-label/swap
 </pre>
 
-After our mounts are set up, we create our target system's configuration. The `nixos-generate-config` utility uses the installation environment's state -- such as loaded kernel modules, network, mounts -- to generate a starter Nix expression.
+After our mounts are set up, we create our target system's configuration. The `nixos-generate-config` utility uses the installation environment's state--such as loaded kernel modules, network, mounts--to generate a starter Nix expression.
 
 <pre class="sourceCode">
 # nixos-generate-config --root /mnt
 </pre>
 
-This generates two files: `/mnt/etc/nixos/configuration.nix` and `hardware-configuration.nix`. The latter one is imported by the former. As the name suggests, the latter one contains hardware-specific details such as mounts and kernel modules. It makes sense to keep it in a separate file, because it can be regenerated every time the hardware changes - which is a real use case on bare metal. However, we'll manage this configuration with NixOps later, so it's ok to edit it.
+This generates two files: `/mnt/etc/nixos/configuration.nix` and `hardware-configuration.nix`. The latter one is imported by the former. As the name suggests, the latter one contains hardware-specific details such as mounts and kernel modules. It makes sense to keep it in a separate file because it can be regenerated every time the hardware changes--which is a real use case on bare metal. However, we'll manage this configuration with NixOps later, so it's ok to edit it.
 
 To make our system bootable, we need to add enable GRUB in the configuration. We add the following to 
 `hardware-configuration.nix`:
@@ -51,7 +51,7 @@ boot.loader.grub.device = "/dev/sda";
 
 We can also change the by-UUID devices to by-label while we're at it, to make our configuration more portable.
 
-We'll need to enable password login for root, so NixOps can log in to deploy. This is only needed for the first deployment, until the SSH-keys are properly set up. Just add the following to to `configuration.nix `:
+We'll need to enable password login for root, so NixOps can log in to deploy. This is only needed for the first deployment until the SSH-keys are properly set up. Just add the following to `configuration.nix `:
 
 ```bash
 networking.firewall.allowedTCPPorts = [ 22 ];
@@ -65,9 +65,9 @@ That was it, we can continue the installation with the `nixos-install --root /mn
 
 # Updating to the latest version
 
-Unfortunately the version shipped by RamNode is 14.04, which means Nix (the package manager) is not compatible with the one used by NixOps. We have to update our system manually before we continue.
+Unfortunately, the version shipped by RamNode is 14.04, which means Nix (the package manager) is not compatible with the one used by NixOps. We have to update our system manually before we continue.
 
-To do that, we have to boot into our fresh OS, login as root, and update it in multiple steps so the Nix expressions in the next version can be interpreted by the current one. I found that two versions (15.09 and 16.09) are necessary stepping stones to update to `unstable` -- it might be possible to do it in fewer steps, but I stopped experimenting.
+To do that, we have to boot into our fresh OS, log in as root, and update it in multiple steps so the Nix expressions in the next version can be interpreted by the current one. I found that two versions (15.09 and 16.09) are necessary stepping stones to update to `unstable` -- it might be possible to do it in fewer steps, but I stopped experimenting.
 
 To upgrade we need to set the [nixos channel][nixos-channels] to a newer version, and then download it. Then we run rebuild our OS with the new definitions. The `switch` command of `nixos-rebuild` causes our new state to be saved (so it will load at the next boot), otherwise it would be just active for the current session. This is a very handy way to mess around with the configuration without the risk of breaking anything (immutability rocks!).
 
@@ -88,7 +88,7 @@ It's a pretty simple and fast process, so it won't hurt to do it three times.
 
 # Provisioning our node with NixOps
 
-On another machine (our workstation, probably), we install NixOps via Nix. Nix is likely available via your distribution's package manager or — if that's your thing — there's a handy installer on the [project website][nix-installation]. If we add the Nix bin directory to our `$PATH` as suggested by the installer (if using a package this might be done automatically), the installed Nix packages will be available globally. If not, then can be accessed via `nix-shell`, which makes it quite convenient to manage different development environments.
+On another machine (our workstation, probably), we install NixOps via Nix. Nix is likely available via your distribution's package manager or--if that's your thing--there's a handy installer on the [project website][nix-installation]. If we add the Nix bin directory to our `$PATH` as suggested by the installer (if using a package this might be done automatically), the installed Nix packages will be available globally. If not, they can be accessed via `nix-shell`, which makes it quite convenient to manage different development environments.
 
 After we have Nix up and running, we install NixOps in our environment.
 
@@ -96,13 +96,13 @@ After we have Nix up and running, we install NixOps in our environment.
 $ nix-env --install nixops 
 ```
 
-Now that our node is set up, let's pull our generated config file to have something to begin with (I'll refer to our target host as `target.example.com`), and rename them to something meaningful:
+Now that our node is set up, let's pull our generated config file to have something to begin with, and rename them to something meaningful. I'll refer to our target host as `target.example.com` in our config files.
 
 ```bash
 $ scp -r root@target.example.com:/etc/nixos/hardware-configuration.nix ramnode-kvm.nix
 ```
 
-With this naming we can have a separate hardware-specific expression for each type of machine (like RamNode or VirtualBox) and switch it below our higher-level configuration easily.
+With this naming, we can have a separate hardware-specific expression for each type of machine (like RamNode or VirtualBox) and switch it below our higher-level configuration easily.
 
 We need a top-level expression which defines the network and puts the pieces together. We also define the technical details of deployment here. Since we already installed NixOS manually, we just have to provide a host for NixOps.
 
@@ -150,7 +150,7 @@ Here comes the fun part! First of all, we open the ports on the firewall:
     networking.firewall.allowedTCPPorts = [ 80 443 ];
 ```
 
-Then we enable the nginx service. Note that we're using the [attribute set syntax][nix-manual-sets] here instead of dot-separated fields. The Nix language is not just a configuration file format but a full-blown functional language. We're just scratching the surface here - make sure to check out the language itself.
+Then we enable the `nginx` service. Note that we're using the [attribute set syntax][nix-manual-sets] here instead of dot-separated fields. The Nix language is not just a configuration file format but a full-blown functional language. We're just scratching the surface here - make sure to check out the language itself.
 
 We also add a virtual host to our hostname.
 
@@ -190,7 +190,7 @@ We respect our elders, so we make sure `www.target.example.com` works as well. R
     };
 ```
 
-Finally, we need a way to deploy our content to the webserver. Obviously we don't want to log in as root, thus we create a user who owns the document root which can be used for deployment.
+Finally, we need a way to deploy our content to the webserver. Obviously, we don't want to log in as root, thus we create a user who owns the document root which can be used for deployment.
 
 This will create a user when our configuration is deployed and add the supplied public key to it's authorized keys.
 
@@ -213,19 +213,19 @@ Now we create the network in NixOps and set up the SSH keys for deployment. It's
 $ nixops create network.nix -dexample
 ```
 
-*Note: this convoluted file structure is totally optional. NixOps just needs a a single Nix expression, it doesn't care how they are spread across files. We could also create a network by passing multiple filenames to `create` and it would combine them into one. This pattern is used in the [NixOps manual][nixops-manual-vbox].*
+*Note: this convoluted file structure is totally optional. NixOps just needs a single Nix expression, it doesn't care how they are spread across files. We could also create a network by passing multiple filenames to `create` and it would combine them into one. This pattern is used in the [NixOps manual][nixops-manual-vbox].*
 
-We're ready to deploy our configuration to the server. This will only work if there's a working domain (and a www domain) pointed to our target server - otherwise the ACME setup will fail, so the whole deployment.
+We're ready to deploy our configuration to the server. This will only work if there's a working domain (and a www domain) pointed to our target server--otherwise, the ACME setup will fail, so the whole deployment.
 
 ```bash
 $ nixops deploy -dexample
 ```
 
-If the deployment succeeds, our previous configuration will be taken over by the new one (no more root login with password!). We can enjoy our new webserver now.
+If the deployment succeeds, our previous configuration will be taken over by the new one (no more root login with a password!). We can enjoy our new webserver now.
 
 # What's next
 
-Altough our OS configuration is immutable and reproducible, we're still far from the ideal. We still have to deploy our web content over SSH - which requires a manual step after the deployment and introduces a mutable state.
+Although our OS configuration is immutable and reproducible, we're still far from the ideal. We still have to deploy our web content over SSH - which requires a manual step after the deployment and introduces a mutable state.
 
 In a future article, I'll go one step further and package the website content itself in a Nix package so the whole deployment process can be covered with NixOps. Stay tuned!
 

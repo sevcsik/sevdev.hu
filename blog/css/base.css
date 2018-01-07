@@ -234,6 +234,13 @@ sd-post h1 {
 	margin: 0; 
 }
 
+sd-post h2 {
+	font-size: 120%;
+	color: #7F2626;
+	font-weight: bold;
+	margin: 0; 
+}
+
 sd-post p {
 	margin-bottom: 8px;
 }
