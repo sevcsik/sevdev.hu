@@ -9,8 +9,8 @@ in {
 		enable = true;
 		virtualHosts = {
 			"sevdev.hu" = {
-				#forceSSL = true;
-				#enableACME = true;
+				forceSSL = true;
+				enableACME = true;
 				root = "${blog}";
 
 				locations."/resume" = {
@@ -24,8 +24,8 @@ in {
 			};
 			
 			"www.sevdev.hu" = {
-				#forceSSL = true;
-				#enableACME = true;
+				forceSSL = true;
+				enableACME = true;
 
 				locations."/" = {
 					extraConfig = "return 301 $scheme://sevdev.hu$1;";
