@@ -1,10 +1,12 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 import           Data.Monoid (mappend)
+import           System.FilePath
 import           Hakyll
 import           Hakyll.Core.Configuration
+import           Hakyll.Core.Identifier.Pattern (Pattern, fromGlob)
+import           Hakyll.Core.Identifier (Identifier, fromFilePath)
 import           Data.Maybe (fromMaybe)
 import qualified Data.HashMap.Strict as HMS
+import           GHC.Exts (IsString, fromString)
 
 postCtx :: Context String
 postCtx = ( mconcat
@@ -23,19 +25,14 @@ getTeaser = fmap (unlines . takeWhile (/= "<!-- TEASER -->") . lines)
 
 feedConfig = FeedConfiguration
     { feedTitle       = "sevdev blog"
-    , feedDescription = ""
+    , feedDescription = "Crypto & web development"
     , feedAuthorName  = "Andras Sevcsik"
     , feedAuthorEmail = "sevcsik@sevdev.hu"
-    , feedRoot        = "https://sevdev.hu/~sevcsik"
+    , feedRoot        = "https://sevdev.hu"
     }
 
-config = defaultConfiguration { deployCommand = " mkdir -p _site/resume \
-                                                \ && cp -r resume/dist/* _site/resume \
-                                                \ && ipfs add -r _site"
-                              }
-
 main :: IO ()
-main = hakyllWith config $ do
+main = hakyllWith defaultConfiguration $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -47,6 +44,8 @@ main = hakyllWith config $ do
     match "fonts/*" $ do
         route   idRoute
         compile copyFileCompiler
+
+    match "templates/*" $ compile templateCompiler
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -110,8 +109,6 @@ main = hakyllWith config $ do
                 >>= applyAsTemplate ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
-
-    match "templates/*" $ compile templateCompiler
 
     create ["rss.xml"] $ do
         route idRoute

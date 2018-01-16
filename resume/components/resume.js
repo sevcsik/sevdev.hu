@@ -4,6 +4,9 @@
  * @class sd-resume
  */
 
+import '../bower_components/es6-shim/es6-sham.min.js';
+import '../bower_components/webcomponentsjs/webcomponents.min.js';
+
 import analytics from '../modules/analytics.js';
 import branding from '../modules/branding.js';
 
