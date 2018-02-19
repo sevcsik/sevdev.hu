@@ -6,4 +6,5 @@
 	          ];
 	
 	deployment.targetHost = "rn1.sevdev.hu";
+	networking.hostName = "rn1.sevdev.hu";
 }
