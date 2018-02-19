@@ -1,3 +1,4 @@
+------------------------------------------
 title: First-class Functions in JavaScript
 ------------------------------------------
 
@@ -79,7 +80,7 @@ const pluck = function(field) {
 }
 ```
 
-Our `pluck` function takes a field name and returns a function which takes the actual object and extracts that field. Since it returns a function, it is a *higher-order* function. We could use our function to extract a field from a single object like this: `pluck({ a: 5, b: 1 })('a')`. This is what we call a *[curried function][5]*: if we call it with just one parameter, it yields a function which takes the second parameter only, if it's called with both parameters, it yields the actual result. We can also say that if we call it with only one argument, we [*partialy apply*][6] the first argument to our function.
+Our `pluck` function takes a field name and returns a function which takes the actual object and extracts that field. Since it returns a function, it is a *higher-order* function. We could use our function to extract a field from a single object like this: `pluck({ a: 5, b: 1 })('a')`. This is what we call a [*curried function*][5]: if we call it with just one parameter, it yields a function which takes the second parameter only, if it's called with both parameters, it yields the actual result. We can also say that if we call it with only one argument, we [*partialy apply*][6] the first argument to our function.
 
 Unfortunately, JavaScript doesn't support currying natively, so we have to use this weird `()()` syntax when calling curried functions, which also means they are not interchangeable with regular functions. Much cooler languages such as Haskell or ML support curried functions (in fact they support *only* curried functions) natively, so no special syntax is needed.
 
@@ -106,7 +107,7 @@ counter.dec(5) // yields NaN
 
 You can set the dynamic scope for a function using `Function#call` or `Functon#apply`. Both take the context as the first parameter, and then the parameters are passed as arguments to the function (either as separate parameters or as an array of parameters).
 
-The `.` (dot) operator has a special meaning when followed by a *method invocation*: it passes the object before it as a context to the method after it. So `counter.inc(5) === incrementBy.call(counter, 5)`, given that we assigned the incrementBy function to the field `inc` previously. Methods are nothing special in JavaScript, they are just functions assigned to a field of an object.
+The `.` (dot) operator has a special meaning when followed by a *method invocation*: it passes the object before it as a context to the method after it. So `counter.inc(5) === incrementBy.call(counter, 5)`, given that we assigned the `incrementBy` function to the field `inc` previously. Methods are nothing special in JavaScript, they are just functions assigned to a field of an object.
 
 What's wrong with `decrementBy`? It is an *arrow function*, not a regular function, and here's where they differ from each other. When we define an arrow function, the resulting function is *bound* to the dynamic scope of it's enclosing scope, and cannot be overridden later. This change was introduced so developers can use object methods as callbacks while using their original `this`. As callbacks are usually passed as functions, the context is lost when the caller invokes it, which made it hard to pass them around (and developers resorted to using hacks like `var that = this`). The same context *binding* can be achieved with regular functions, using the higher-order function `Function#bind`, which returns a copy of a function bound to a specific context.
 
