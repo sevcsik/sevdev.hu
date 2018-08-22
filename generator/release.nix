@@ -1,1 +1,3 @@
-  with import <nixpkgs> {}; pkgs.haskellPackages.callPackage ./default.nix {}
+{
+	build = with import <nixpkgs> {}; pkgs.haskellPackages.callPackage ./default.nix {};
+}
