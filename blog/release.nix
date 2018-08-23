@@ -1,1 +1,3 @@
-with import <nixpkgs> {}; pkgs.callPackage ./default.nix {}
+{
+	build = with import <nixpkgs> {}; pkgs.callPackage ./default.nix {};
+}
