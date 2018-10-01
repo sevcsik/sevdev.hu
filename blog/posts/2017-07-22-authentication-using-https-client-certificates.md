@@ -1,6 +1,5 @@
 -----------------------------------------------------
 title: Authentication using HTTPS client certificates
-steem: @sevcsik/authentication-using-https-client-certificates
 -----------------------------------------------------
 
 We hear a lot about how passwords are insecure, and should not be used alone for authentication. They are hard to

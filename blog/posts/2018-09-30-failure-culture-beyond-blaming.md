@@ -1,6 +1,6 @@
---------------------------------------
-title: Failure culture: Beyond blaming
---------------------------------------
+----------------------------------------
+title: "Failure culture: Beyond blaming"
+----------------------------------------
 
 It's inevitable that people make mistakes. Often, the impact of these mistakes are high - sometimes it breaks other team's code, introduces regressions which can lurk around for a long time. On large projects, especially where a good chunk of legacy is in play, mistakes happen more often and are way more harder to find.
 
@@ -13,11 +13,12 @@ At the end of the day, you **will** fail as everyone else, and you have to be ab
 # The Blame Game
 
 Probably you heard these a plenty times:
+
   - "I've told this a thousand times but people are **still doing it**!"
   - "Great, another three months of work thrown out the window"
   - and my personal favourite: "Who will take the responsibility for this?"
 
-If *the lack of accountability* and *blame game* are recurring themes on your retrospectives, your organisation might have a problem with handling failure. These two issues may seem contradictory, but in fact they go hand in hand and amplify each other.
+If the *lack of accountability* and *blame game* are recurring themes on your retrospectives, your organisation might have a problem with handling failure. These two issues may seem contradictory, but in fact they go hand in hand and amplify each other.
 
 If people see that mistakes are left unhandled, they will call each other out on it - probably not the most polite way, out of frustration, doing a lot of collateral damage in the process. When people expect to be blamed and pilloried for making mistakes, they are more likely to avoid admitting their mistakes and thus learn from them.
 
@@ -25,7 +26,7 @@ Culture won't change by talking about it. What you can do is start acting on it 
 
 # How [Agile Development][manifesto] Helps Dealing with Failure
 
-Agile development methods focus on people, adaptability and of course quality. Learning from failures are not just an option, but a core part of the methodology. Every mistake is an opportunity to adapt, and they have to be taken care of in order to get the most value out of them. If they are handled properly, failure can be just as valuable as success.
+Agile development methods focus on people, adaptability and of course quality. Learning from failures are not just an option, but a core part of the methodology. Every mistake is an opportunity to adapt, and they have to be taken care of in a way to get the most value out of them. If they are handled properly, failure can be just as valuable as success.
 
 ## Trust
 
@@ -57,7 +58,7 @@ Whether you discovered your own mistake or someone else did, **take ownership**.
 
 Be proactive and find ways to catch mistakes like this in the future. Maybe a new tool could help to catch this earlier or the [working agreement][working-agreement] should be extended. Be sure to bring up the issue on your next retrospective.
 
-What you should not do is to shift blame to others. Yes, you made the mistake, but it passed the review and testing! *They also made a mistake!*. Perhaps they did, but it doesn't make your mistake smaller. Leave it the dealing with their part of the responsibility to them, and concentrate on your own.
+What you should not do is to shift blame to others. Yes, you made the mistake, but it passed the review and testing! *They also made a mistake!*. Perhaps they did, but it doesn't make your mistake smaller. Leave the dealing with their part of the responsibility to them, and concentrate on your own.
 
 On the other hand, if you see someone taking responsibility and you also feel responsible, join the discussion and elaborate how you could do your part better.
 
@@ -83,7 +84,7 @@ Of course if you have some **constructive** thoughts, it's ok to publish them on
 [working-agreement]: https://shift.newco.co/2017/07/23/team-working-agreements-the-why-what-and-how
 [linus]: https://www.theregister.co.uk/2018/09/17/linus_torvalds_linux_apology_break
 [null-ref]: https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions
-[ctr-alt-del]: https://www.theverge.com/2013/9/26/4772680/bill-gates-admits-ctrl-alt-del-was-a-mistake
+[ctrl-alt-del]: https://www.theverge.com/2013/9/26/4772680/bill-gates-admits-ctrl-alt-del-was-a-mistake
 [double-slash]: https://www.zdnet.com/article/double-slash-in-web-addresses-a-bit-of-a-mistake
 [cambridge-analytica]: https://www.theguardian.com/technology/2018/mar/21/mark-zuckerberg-response-facebook-cambridge-analytica
 [illusory-superiority]: https://en.wikipedia.org/wiki/Illusory_superiority
