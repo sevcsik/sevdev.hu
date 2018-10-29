@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 {
-	imports = [ hardware/ramnode-kvm.nix
-	            server/static-nginx.nix
-	            security/admin-ssh.nix
+	imports = [ ../hardware/ramnode-kvm.nix
+	            ./static-nginx.nix
 	          ];
 	
 	deployment.targetHost = "rn1.sevdev.hu";
