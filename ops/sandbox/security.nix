@@ -5,7 +5,9 @@ in
 
 	users.extraUsers.www-deploy = { isNormalUser = true;
 	                                home = "/var/www";
-	                                openssh.authorizedKeys.keyFiles = [ ./www-deploy-rsa.pub ];
+	                                openssh.authorizedKeys.keyFiles = [ ./www-deploy-rsa-local.pub
+	                                                                    ./www-deploy-rsa-ci.pub
+	                                                                  ];
 	                              };
 
 	security.sudo.configFile = ''

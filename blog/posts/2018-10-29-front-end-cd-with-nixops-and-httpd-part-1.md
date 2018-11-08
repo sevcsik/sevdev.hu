@@ -106,8 +106,7 @@ ops/sandbox
 ├── hardware.nix       # Harware-specific config, generated
 ├── security.nix       # Users, SSH setup
 ├── webserver.nix      # Apache HTTPD config
-├── www-deploy-rsa     # private key for www-deploy user (gitignored)
-└── www-deploy-rsa.pub # public key for www-deploy user (gitignored)
+└── www-deploy-rsa.pub # public key for www-deploy user
 </pre>
 
 ## Apache HTTPD
@@ -220,17 +219,16 @@ to work in a CI environment.
 
 # ./deploy.sh
 
-SSH_PRIVKEY="./ops/sandbox/www-deploy-rsa"
 SSH_USERNAME="www-deploy"
 DEPLOY_HOSTNAME="sandbox.example.com"
-SSH_ARGS=( "-i" "$SSH_PRIVKEY" "$SSH_USERNAME@$DEPLOY_HOSTNAME" )
+SSH_ARGS=( "$SSH_USERNAME@$DEPLOY_HOSTNAME" )
 PUBLIC_DOMAIN_PARENT="sandbox.example.com"
 ```
 
 ## Deploying the virtual host config
 
 First, we generate the virtual host config file, which we'll deploy to the server's `/var/www/vhosts` directory using
-our `www-deploy-rsa` private key.
+our `www-deploy-rsa` private key generated on our client.
 
 We set the domain name the server should listen on (`ServerName`) to the branch name converted to a
 domain-friendly format (slashes and underscores replaced with dashes) and prepend it to our upper-level domain name.
