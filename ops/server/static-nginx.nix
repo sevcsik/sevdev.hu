@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let blog = import ../../blog/release.nix;
-    resume = import ../../resume/release.nix;
 in {
 	networking.firewall.allowedTCPPorts = [ 80 443 ];
 
@@ -12,10 +11,6 @@ in {
 				forceSSL = true;
 				enableACME = true;
 				root = "${blog}";
-
-				locations."/resume" = {
-					alias = "${resume}";
-				};
 
 				# To not break old IPFS URLs
 				extraConfig = "location ~ \"^/ipns/sevdev\\.hu(.*)$\" {"
