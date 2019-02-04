@@ -54,8 +54,8 @@ It's an easy thing to do from CSS:
 
 With this solution, you suddenly rely on
 
- - there is an `.msg-background` element rendered by the component
- - the background colour is set by having a `background` rule on that element
+ - an `.msg-background` element being rendered by the component
+ - the background colour set by a `background` rule on that element
 
 It's easy to see that that your code will break if somebody wants to change the inner DOM of `my-component`, or even if
 they just decide to use `background-color` instead of `background`. It's not just about refactoring: maybe the author
