@@ -1,5 +1,11 @@
-{
-	network.description = "sevdev network";
+{ network.description = "sevdev network"
 
-	fileserver = import ./fileserver.nix;
-}
+; web = { imports = [ hardware/ramnode-kvm.nix
+                      server/static-nginx.nix
+                    ]
+
+        ; deployment.targetHost = "rn1.sevdev.hu"
+        ; networking.hostName = "rn1.sevdev.hu"
+
+        ; }
+; }
