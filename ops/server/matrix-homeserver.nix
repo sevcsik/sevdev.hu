@@ -1,7 +1,6 @@
 { pkgs, resources, ... }:
 { services.matrix-synapse = { database_type = "sqlite3"
                             ; enable = true
-                            ; enable_registration = true
                             ; listeners = [ { bind_address = "127.0.0.1"
                                             ; port = 8448
                                             ; resources = [ { compress = false
