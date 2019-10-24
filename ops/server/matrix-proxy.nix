@@ -1,7 +1,7 @@
 { nodes, pkgs, resources, ... }:
 let matrixVHost = { enableACME = true
                   ; forceSSL = true
-                  ; locations."/_matrix" = { proxyPass = "http://localhost:8448/"
+                  ; locations."/_matrix" = { proxyPass = "http://localhost:8448/_matrix"
                                            ; extraConfig = ''
                                                proxy_set_header X-Forwarded-For $remote_addr;
                                              ''

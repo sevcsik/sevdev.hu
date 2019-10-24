@@ -1,15 +1,7 @@
 { pkgs, resources, ... }:
-let matrixVHost = { enableACME = true
-                  ; forceSSL = true
-                  ; locations."/_matrix" = { proxyPass = "http://localhost:8448/"
-                                           ; extraConfig = ''
-                                               proxy_set_header X-Forwarded-For $remote_addr;
-                                             ''
-                                           ; }
-                  ; }
-; in
 { services.matrix-synapse = { database_type = "sqlite3"
                             ; enable = true
+                            ; enable_registration = true
                             ; listeners = [ { bind_address = "127.0.0.1"
                                             ; port = 8448
                                             ; resources = [ { compress = false
