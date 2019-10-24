@@ -7,12 +7,14 @@
 
         ; deployment.targetHost = "rn1.sevdev.hu"
         ; networking.hostName = "rn1.sevdev.hu"
+        ; services.openssh.enable = true
         ; }
 ; matrix = { imports = [ hardware/ramnode-kvm.nix
                          server/matrix-homeserver.nix
                        ]
            ; deployment.targetHost = "rn2.sevdev.hu"
            ; networking.hostName = "rn2.sevdev.hu"
+           ; services.openssh.enable = true
            ; }
 ; resources.sshKeyPairs.matrixTunnel = {}
 ; }

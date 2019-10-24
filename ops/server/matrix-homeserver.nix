@@ -23,5 +23,7 @@ let matrixVHost = { enableACME = true
                             ; public_baseurl = "https://sevdev.hu"
                             ; server_name = "sevdev.hu"
                             ; }
-; users.users.matrix-tunnel = { openssh.authorizedKeys.keys = [ resources.sshKeyPairs.matrixTunnel.publicKey ]; }
+; users.users.matrix-tunnel = { openssh.authorizedKeys.keys = [ resources.sshKeyPairs.matrixTunnel.publicKey ]
+                              ; useDefaultShell = true
+                              ; }
 ; }
