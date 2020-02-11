@@ -1,0 +1,5 @@
+{
+    master = {
+        openssh.enable = true;
+    };
+}
