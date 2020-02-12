@@ -59,19 +59,19 @@ beállításokat.
 
 ```nix
 # network.nix @ 9ff7127
-
 {
     master = {
         openssh.enable = true;
     };
 }
+```
 
 Jelenleg itt semmi érdekeset nem csinálunk, csupán bekapcsoljuk az OpenSSH
 szolgáltatást a `master` gépen, hogy be tudjunk rá jelentkezni.
 
 Ki is próbálhatjuk a rendszert az alábbi parancsokkal:
 
- - Először létrehozzuk a hálózatot az `example-vbox` hálózatazonosítóvalÉ
+ - Először létrehozzuk a hálózatot az `example-vbox` hálózatazonosítóval
 
 ```sh
 $ nixops create -dexample-vbox network-vbox.nix network.nix
