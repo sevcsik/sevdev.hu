@@ -35,7 +35,7 @@ kifejezés lesz a rendszer belépési pontja: ezt tudjuk telepíteni majd a
 
 
 ```nix
-# network-vbox.nix @ d0b8375
+# network-vbox.nix @ 9ff7127
 {
     network.description = "Example TestNet - Virtualbox";
     master = {
@@ -58,7 +58,7 @@ telepíteni ugyanezt a konfigurációt anélkül, hogy duplikálnunk kéne a
 beállításokat.
 
 ```nix
-# network.nix
+# network.nix @ 9ff7127
 
 {
     master = {
